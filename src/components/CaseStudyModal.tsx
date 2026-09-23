@@ -36,10 +36,10 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
       aria-modal="true"
       aria-labelledby="case-study-title"
     >
-      <div className="bg-[#0c121e] border border-[#1f2d47] rounded-2xl max-w-5xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden my-auto animate-in zoom-in-95 duration-200">
+      <div className="bg-[#0c121e] border border-[#1f2d47] rounded-2xl max-w-5xl w-full min-h-[550px] max-h-[92vh] flex flex-col shadow-2xl overflow-hidden my-auto animate-in zoom-in-95 duration-200">
         
         {/* Top Header */}
-        <div className="p-5 sm:p-6 border-b border-[#1f2d47] bg-[#090d15] flex items-start justify-between gap-4">
+        <div className="p-5 sm:p-6 border-b border-[#1f2d47] bg-[#090d15] flex items-start justify-between gap-4 shrink-0">
           <div>
             <div className="flex flex-wrap items-center gap-2 mb-2 font-mono text-xs">
               <span className="px-2.5 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800">
@@ -77,10 +77,10 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
         </div>
 
         {/* Tab Strip */}
-        <div className="px-6 border-b border-[#1f2d47] bg-[#0c121e] flex gap-2 sm:gap-6 overflow-x-auto text-xs font-semibold font-mono">
+        <div className="px-4 sm:px-6 border-b border-[#1f2d47] bg-[#0c121e] flex gap-2 sm:gap-6 overflow-x-auto text-xs font-semibold font-mono shrink-0 min-h-[54px] items-stretch">
           <button
             onClick={() => setActiveTab('study')}
-            className={`py-3 border-b-2 flex items-center gap-1.5 transition-all duration-200 cursor-pointer whitespace-nowrap px-1 ${
+            className={`py-3.5 border-b-2 flex items-center gap-2 transition-all duration-200 cursor-pointer whitespace-nowrap px-2.5 shrink-0 ${
               activeTab === 'study'
                 ? 'border-cyan-400 text-cyan-300'
                 : 'border-transparent text-slate-400 hover:text-cyan-400 hover:border-cyan-400/60'
@@ -92,7 +92,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
 
           <button
             onClick={() => setActiveTab('pipeline')}
-            className={`py-3 border-b-2 flex items-center gap-1.5 transition-all duration-200 cursor-pointer whitespace-nowrap px-1 ${
+            className={`py-3.5 border-b-2 flex items-center gap-2 transition-all duration-200 cursor-pointer whitespace-nowrap px-2.5 shrink-0 ${
               activeTab === 'pipeline'
                 ? 'border-purple-400 text-purple-300'
                 : 'border-transparent text-slate-400 hover:text-purple-400 hover:border-purple-400/60'
@@ -104,7 +104,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
 
           <button
             onClick={() => setActiveTab('visuals')}
-            className={`py-3 border-b-2 flex items-center gap-1.5 transition-all duration-200 cursor-pointer whitespace-nowrap px-1 ${
+            className={`py-3.5 border-b-2 flex items-center gap-2 transition-all duration-200 cursor-pointer whitespace-nowrap px-2.5 shrink-0 ${
               activeTab === 'visuals'
                 ? 'border-emerald-400 text-emerald-300'
                 : 'border-transparent text-slate-400 hover:text-emerald-400 hover:border-emerald-400/60'
@@ -116,7 +116,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
 
           <button
             onClick={() => setActiveTab('files')}
-            className={`py-3 border-b-2 flex items-center gap-1.5 transition-all duration-200 cursor-pointer whitespace-nowrap px-1 ${
+            className={`py-3.5 border-b-2 flex items-center gap-2 transition-all duration-200 cursor-pointer whitespace-nowrap px-2.5 shrink-0 ${
               activeTab === 'files'
                 ? 'border-amber-400 text-amber-300'
                 : 'border-transparent text-slate-400 hover:text-amber-400 hover:border-amber-400/60'

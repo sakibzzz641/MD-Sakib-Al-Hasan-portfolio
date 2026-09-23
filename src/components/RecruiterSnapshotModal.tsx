@@ -77,16 +77,35 @@ export const RecruiterSnapshotModal: React.FC<RecruiterSnapshotModalProps> = ({
 
         {/* Candidate Identity */}
         <div className="space-y-4">
-          <div>
-            <h2 id="recruiter-snapshot-title" className="text-2xl font-black text-slate-100 font-mono tracking-tight">
-              {profileData.name}
-            </h2>
-            <div className="text-sm font-semibold text-cyan-400 mt-0.5">
-              {profileData.title}
+          <div className="flex items-center gap-4">
+            <div className="relative group shrink-0">
+              <div className="w-16 h-16 rounded-xl p-0.5 bg-gradient-to-tr from-cyan-500 to-blue-600 shadow-md shadow-cyan-500/20 overflow-hidden">
+                <img
+                  src={profileData.photo}
+                  alt={profileData.name}
+                  className="w-full h-full rounded-[10px] object-cover object-top bg-slate-900"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (target.src !== profileData.photoGithubRaw) {
+                      target.src = profileData.photoGithubRaw;
+                    }
+                  }}
+                />
+              </div>
+              <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-[#0c121e]" title="Available" />
             </div>
-            <div className="text-xs text-slate-400 flex items-center gap-1.5 mt-1 font-mono">
-              <MapPin className="w-3.5 h-3.5 text-rose-400" />
-              <span>{profileData.location}</span>
+
+            <div>
+              <h2 id="recruiter-snapshot-title" className="text-xl sm:text-2xl font-black text-slate-100 font-mono tracking-tight">
+                {profileData.name}
+              </h2>
+              <div className="text-sm font-semibold text-cyan-400 mt-0.5">
+                {profileData.title}
+              </div>
+              <div className="text-xs text-slate-400 flex items-center gap-1.5 mt-1 font-mono">
+                <MapPin className="w-3.5 h-3.5 text-rose-400 shrink-0" />
+                <span>{profileData.location}</span>
+              </div>
             </div>
           </div>
 

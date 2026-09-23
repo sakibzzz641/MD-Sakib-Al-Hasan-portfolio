@@ -55,10 +55,29 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRecruiterSnapshot }) => {
           {/* Left Column: Value Proposition & Copy */}
           <div className="lg:col-span-7 space-y-6 text-left">
             
-            {/* Eyebrow badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-800/60 text-cyan-300 text-xs font-mono tracking-wide shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-              <span>{profileData.eyebrow}</span>
+            {/* Identity & Eyebrow Badge */}
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="relative group/avatar shrink-0">
+                <div className="w-12 h-12 rounded-xl p-0.5 bg-gradient-to-tr from-cyan-500 via-blue-500 to-indigo-500 shadow-md shadow-cyan-500/20 overflow-hidden">
+                  <img
+                    src={profileData.photo}
+                    alt={profileData.name}
+                    className="w-full h-full rounded-[10px] object-cover object-top bg-slate-900 group-hover/avatar:scale-110 transition-transform duration-300"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (target.src !== profileData.photoGithubRaw) {
+                        target.src = profileData.photoGithubRaw;
+                      }
+                    }}
+                  />
+                </div>
+                <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-[#090d15]" title="Available for opportunities" />
+              </div>
+
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-800/60 text-cyan-300 text-xs font-mono tracking-wide shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                <span>{profileData.eyebrow}</span>
+              </div>
             </div>
 
             {/* Headline */}

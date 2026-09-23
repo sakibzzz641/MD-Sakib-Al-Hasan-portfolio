@@ -133,17 +133,27 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Logo & Identity */}
           <a
             href="#"
-            className="group flex items-center gap-2.5 focus:outline-none"
+            className="group flex items-center gap-2.5 focus:outline-none shrink-0"
             aria-label="MD. Sakib Al Hasan Portfolio Home"
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white font-mono font-bold text-sm shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform">
-              S
+            <div className="relative w-9 h-9 rounded-xl p-0.5 bg-gradient-to-tr from-cyan-500 via-sky-500 to-blue-600 shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform shrink-0 overflow-hidden flex items-center justify-center">
+              <img
+                src={profileData.photo}
+                alt={profileData.name}
+                className="w-full h-full rounded-[10px] object-cover object-top bg-slate-900"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (target.src !== profileData.photoGithubRaw) {
+                    target.src = profileData.photoGithubRaw;
+                  }
+                }}
+              />
             </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-bold tracking-wider text-slate-100 dark:text-slate-100 light:text-slate-900 group-hover:text-cyan-400 transition-colors uppercase font-mono">
-                MD. Sakib Al Hasan
+            <div className="flex flex-col min-w-0">
+              <span className="text-sm font-bold tracking-wider text-slate-100 dark:text-slate-100 light:text-slate-900 group-hover:text-cyan-400 transition-colors uppercase font-mono whitespace-nowrap">
+                {profileData.name}
               </span>
-              <span className="text-[10px] tracking-tight text-slate-400 dark:text-slate-400 light:text-slate-500">
+              <span className="text-[10px] tracking-tight text-slate-400 dark:text-slate-400 light:text-slate-500 whitespace-nowrap">
                 Junior Data Scientist · Analyst
               </span>
             </div>
@@ -195,7 +205,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Download CV */}
             <Tooltip
               content="Curriculum Vitae"
-              subtext="Download PDF (83 KB)"
+              subtext="Download PDF (350 KB)"
               position="bottom"
             >
               <a

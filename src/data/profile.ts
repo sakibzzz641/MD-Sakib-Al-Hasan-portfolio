@@ -2,6 +2,9 @@ export const profileData = {
   name: "MD. SAKIB AL HASAN",
   preferredName: "Sakib",
   title: "Junior Data Scientist | Data Analyst",
+  photo: "/asset/Professional%20photo.png",
+  photoGithubRaw: "https://raw.githubusercontent.com/sakibzzz641/MD-Sakib-Al-Hasan-portfolio-/main/asset/Professional%20photo.png",
+  photoRaw: "asset/Professional photo.png",
   careerFocus: "Entry-Level Data Scientist / Data Analyst",
   location: "Chinishpur, Narsingdi Sadar, Narsingdi, Bangladesh",
   shortLocation: "Narsingdi, Bangladesh",
@@ -48,8 +51,10 @@ export const profileData = {
     }
   ],
   cv: {
-    downloadPath: "/documents/Sakib_Al_Hasan_Data_Science_CV.pdf",
-    fileName: "Sakib_Al_Hasan_Data_Science_CV.pdf",
+    downloadPath: "/documents/Sakib_Al_Hasan_Data_Science.pdf",
+    fileName: "Sakib_Al_Hasan_Data_Science.pdf",
+    githubUrl: "https://github.com/sakibzzz641/MD-Sakib-Al-Hasan-portfolio-/blob/main/asset/Sakib_Al_Hasan_Data_Science.pdf",
+    rawGithubUrl: "https://raw.githubusercontent.com/sakibzzz641/MD-Sakib-Al-Hasan-portfolio-/main/asset/Sakib_Al_Hasan_Data_Science.pdf",
     lastUpdated: "September 2026",
     available: true
   }

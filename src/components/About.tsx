@@ -91,17 +91,57 @@ export const About: React.FC = () => {
             </div>
           </div>
 
-          {/* Professional Snapshot Card (Structured Recruiter Facts) */}
+          {/* Professional Snapshot Card (Structured Recruiter Facts & Photo) */}
           <div className="lg:col-span-5 space-y-4">
             <div className="rounded-2xl bg-[#0e1626]/90 border border-[#1f2d47] p-6 shadow-xl">
-              <div className="flex items-center justify-between pb-4 border-b border-slate-800/80 mb-5">
-                <div className="flex items-center gap-2 text-sm font-bold text-slate-200 uppercase tracking-wider font-mono">
-                  <Target className="w-4 h-4 text-cyan-400" />
-                  <span>Professional Snapshot</span>
+              
+              {/* Photo & Profile Header */}
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 pb-5 border-b border-slate-800/80 mb-5">
+                <div className="relative group shrink-0">
+                  <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl p-1 bg-gradient-to-tr from-cyan-500 via-blue-600 to-indigo-500 shadow-xl shadow-cyan-500/20 overflow-hidden">
+                    <img
+                      src={profileData.photo}
+                      alt={`${profileData.name} - Junior Data Scientist`}
+                      className="w-full h-full rounded-xl object-cover object-top bg-slate-900 group-hover:scale-105 transition-transform duration-300"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        if (target.src !== profileData.photoGithubRaw) {
+                          target.src = profileData.photoGithubRaw;
+                        }
+                      }}
+                    />
+                  </div>
+                  <div className="absolute -bottom-1 -right-1 px-2 py-0.5 rounded-full bg-emerald-500 text-[10px] font-mono font-bold text-white border border-[#0e1626] shadow-md flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                    <span>Active</span>
+                  </div>
                 </div>
-                <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                  Open to Opportunities
-                </span>
+
+                <div className="text-center sm:text-left space-y-1">
+                  <div className="flex items-center justify-center sm:justify-start gap-2">
+                    <h3 className="text-base font-bold text-slate-100 font-mono tracking-tight">
+                      {profileData.name}
+                    </h3>
+                  </div>
+                  <div className="text-xs font-semibold text-cyan-400 font-mono">
+                    {profileData.title}
+                  </div>
+                  <p className="text-xs text-slate-400 leading-snug pt-1">
+                    Govt. Shaheed Asad College · Mathematics (4th Year) · Ostad Certified ML Specialist
+                  </p>
+                  <div className="pt-1.5 flex items-center justify-center sm:justify-start">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                      ● Open to Junior / Analyst Roles
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between pb-3 mb-2">
+                <div className="flex items-center gap-2 text-xs font-bold text-slate-300 uppercase tracking-wider font-mono">
+                  <Target className="w-4 h-4 text-cyan-400" />
+                  <span>Key Attributes &amp; Focus</span>
+                </div>
               </div>
 
               <div className="space-y-4">

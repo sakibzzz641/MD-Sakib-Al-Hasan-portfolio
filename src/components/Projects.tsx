@@ -336,7 +336,7 @@ export const Projects: React.FC = () => {
         <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8">
           
           {/* Category Tabs */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs font-mono">
+          <div className="flex items-center gap-1.5 overflow-x-auto py-1 pb-2 text-xs font-mono min-h-[44px]">
             {projectCategories.map((category) => {
               const categoryThemes: Record<string, { active: string; hover: string; dot: string }> = {
                 'All': {
@@ -377,7 +377,7 @@ export const Projects: React.FC = () => {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-3.5 py-1.5 rounded-lg border whitespace-nowrap transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
+                  className={`px-3.5 py-2 rounded-lg border whitespace-nowrap transition-all duration-200 cursor-pointer flex items-center gap-1.5 shrink-0 ${
                     isSelected
                       ? `${theme.active} font-bold`
                       : `bg-[#0e1626]/70 text-slate-400 border-slate-800 ${theme.hover}`
