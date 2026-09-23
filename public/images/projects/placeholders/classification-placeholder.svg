@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGradP1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b111e"/>
+      <stop offset="100%" stop-color="#141f36"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" rx="12" fill="url(#bgGradP1)"/>
+  <rect width="800" height="450" rx="12" fill="none" stroke="#1f293d" stroke-width="1.5"/>
+
+  <!-- Decision boundary grid -->
+  <g stroke="#1e293b" stroke-width="1" stroke-dasharray="4 4">
+    <line x1="100" y1="100" x2="700" y2="100"/>
+    <line x1="100" y1="200" x2="700" y2="200"/>
+    <line x1="100" y1="300" x2="700" y2="300"/>
+    <line x1="250" y1="50" x2="250" y2="380"/>
+    <line x1="400" y1="50" x2="400" y2="380"/>
+    <line x1="550" y1="50" x2="550" y2="380"/>
+  </g>
+
+  <!-- Non-linear decision curve -->
+  <path d="M 120 340 C 260 320, 320 220, 430 180 S 620 120, 680 80" fill="none" stroke="#06b6d4" stroke-width="2.5" stroke-dasharray="6 4"/>
+
+  <!-- Class A points (Indigo) -->
+  <g fill="#3b82f6" opacity="0.85">
+    <circle cx="200" cy="140" r="6"/><circle cx="260" cy="110" r="5"/><circle cx="320" cy="130" r="6"/><circle cx="180" cy="220" r="5"/>
+    <circle cx="240" cy="180" r="6"/><circle cx="350" cy="90" r="5"/><circle cx="300" cy="170" r="5.5"/><circle cx="380" cy="120" r="6"/>
+  </g>
+
+  <!-- Class B points (Emerald) -->
+  <g fill="#10b981" opacity="0.85">
+    <polygon points="460,250 466,262 454,262"/><polygon points="520,220 526,232 514,232"/>
+    <polygon points="580,190 586,202 574,202"/><polygon points="480,310 486,322 474,322"/>
+    <polygon points="560,280 566,292 554,292"/><polygon points="620,230 626,242 614,242"/>
+    <polygon points="650,170 656,182 644,182"/><polygon points="530,330 536,342 524,342"/>
+  </g>
+
+  <!-- Central Badge -->
+  <rect x="250" y="380" width="300" height="36" rx="18" fill="#1e293b" stroke="#334155"/>
+  <text x="400" y="403" fill="#cbd5e1" font-family="JetBrains Mono, monospace" font-size="12" font-weight="500" text-anchor="middle">KNN Supervised Decision Space</text>
+</svg>

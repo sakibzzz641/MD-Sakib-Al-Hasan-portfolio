@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGradP2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b111e"/>
+      <stop offset="100%" stop-color="#141f36"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" rx="12" fill="url(#bgGradP2)"/>
+  <rect width="800" height="450" rx="12" fill="none" stroke="#1f293d" stroke-width="1.5"/>
+
+  <!-- Tabular data matrix graphic -->
+  <g fill="#1e293b" stroke="#334155" stroke-width="1">
+    <rect x="80" y="80" width="180" height="40" rx="4"/>
+    <rect x="280" y="80" width="140" height="40" rx="4"/>
+    <rect x="440" y="80" width="140" height="40" rx="4"/>
+    <rect x="600" y="80" width="120" height="40" rx="4"/>
+
+    <rect x="80" y="130" width="180" height="30" rx="2" fill-opacity="0.4"/>
+    <rect x="280" y="130" width="140" height="30" rx="2" fill-opacity="0.4"/>
+    <rect x="440" y="130" width="140" height="30" rx="2" fill-opacity="0.4"/>
+    <rect x="600" y="130" width="120" height="30" rx="2" fill-opacity="0.4"/>
+
+    <rect x="80" y="170" width="180" height="30" rx="2" fill-opacity="0.2"/>
+    <rect x="280" y="170" width="140" height="30" rx="2" fill-opacity="0.2"/>
+    <rect x="440" y="170" width="140" height="30" rx="2" fill-opacity="0.2"/>
+    <rect x="600" y="170" width="120" height="30" rx="2" fill-opacity="0.2"/>
+
+    <rect x="80" y="210" width="180" height="30" rx="2" fill-opacity="0.4"/>
+    <rect x="280" y="210" width="140" height="30" rx="2" fill-opacity="0.4"/>
+    <rect x="440" y="210" width="140" height="30" rx="2" fill-opacity="0.4"/>
+    <rect x="600" y="210" width="120" height="30" rx="2" fill-opacity="0.4"/>
+  </g>
+
+  <!-- Distribution curve overlay -->
+  <path d="M 120 340 Q 280 340, 360 270 T 480 200 T 600 320 T 700 340" fill="none" stroke="#06b6d4" stroke-width="3" opacity="0.9"/>
+
+  <text x="170" y="105" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" text-anchor="middle">df.groupby()</text>
+  <text x="350" y="105" fill="#cbd5e1" font-family="JetBrains Mono, monospace" font-size="12" text-anchor="middle">.agg(['mean'])</text>
+  <text x="510" y="105" fill="#cbd5e1" font-family="JetBrains Mono, monospace" font-size="12" text-anchor="middle">.describe()</text>
+  <text x="660" y="105" fill="#34d399" font-family="JetBrains Mono, monospace" font-size="12" text-anchor="middle">.corr()</text>
+
+  <!-- Central Badge -->
+  <rect x="240" y="380" width="320" height="36" rx="18" fill="#1e293b" stroke="#334155"/>
+  <text x="400" y="403" fill="#cbd5e1" font-family="JetBrains Mono, monospace" font-size="12" font-weight="500" text-anchor="middle">Pandas Exploratory Data Analysis</text>
+</svg>

@@ -1,0 +1,175 @@
+import React from 'react';
+import { 
+  MapPin, 
+  Target, 
+  GraduationCap, 
+  Clock, 
+  Award, 
+  CheckCircle,
+  ExternalLink,
+  BrainCircuit,
+  BookOpen
+} from 'lucide-react';
+import { profileData } from '../data/profile';
+import { socialLinks } from '../data/socialLinks';
+
+export const About: React.FC = () => {
+  return (
+    <section id="about" className="py-20 border-t border-[#1a2336] relative" aria-label="About MD. Sakib Al Hasan">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="mb-12">
+          <div className="inline-flex items-center gap-2 font-mono text-xs text-cyan-400 font-semibold tracking-wider uppercase mb-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+            Background & Profile
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight">
+            About Me
+          </h2>
+          <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mt-3" />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          
+          {/* Main Narrative & Philosophy */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="rounded-2xl bg-[#0e1626]/80 border border-[#1f2d47] p-6 sm:p-8 space-y-5 shadow-lg">
+              <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
+                {profileData.aboutParagraphs[0]}
+              </p>
+              
+              <p className="text-base text-slate-300 leading-relaxed">
+                {profileData.aboutParagraphs[1]}
+              </p>
+
+              {/* Core Tenets Checklist */}
+              <div className="pt-4 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-300">
+                <div className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                  <span>Quantitative reasoning grounded in pure & applied math</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                  <span>Robust data cleaning & missing value strategies</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                  <span>PCA & multi-algorithm unsupervised benchmarking</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                  <span>Translating algorithmic metrics into business value</span>
+                </div>
+              </div>
+
+              {/* Verified Ostad Badge Callout */}
+              <div className="mt-4 p-4 rounded-xl bg-cyan-950/30 border border-cyan-800/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-cyan-900/40 text-cyan-300">
+                    <Award className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-slate-200">
+                      Ostad Certified Data Scientist & ML Practitioner
+                    </div>
+                    <div className="text-[11px] text-slate-400">
+                      Completed Sept 2026 · Batch 56 · Assignment 100% · Quiz 97.3%
+                    </div>
+                  </div>
+                </div>
+                <a
+                  href={socialLinks.ostadCertificate}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-semibold text-cyan-300 hover:text-cyan-200 bg-cyan-900/50 hover:bg-cyan-900/80 transition-colors shrink-0"
+                >
+                  <span>Verify Credential</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Professional Snapshot Card (Structured Recruiter Facts) */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="rounded-2xl bg-[#0e1626]/90 border border-[#1f2d47] p-6 shadow-xl">
+              <div className="flex items-center justify-between pb-4 border-b border-slate-800/80 mb-5">
+                <div className="flex items-center gap-2 text-sm font-bold text-slate-200 uppercase tracking-wider font-mono">
+                  <Target className="w-4 h-4 text-cyan-400" />
+                  <span>Professional Snapshot</span>
+                </div>
+                <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                  Open to Opportunities
+                </span>
+              </div>
+
+              <div className="space-y-4">
+                {/* Location */}
+                <div className="flex items-start gap-3">
+                  <div className="p-2 rounded-lg bg-slate-900 text-slate-400 shrink-0">
+                    <MapPin className="w-4 h-4 text-rose-400" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-mono text-slate-400 uppercase">Location</div>
+                    <div className="text-sm font-semibold text-slate-200">{profileData.snapshot.location}</div>
+                    <div className="text-xs text-slate-400">Chinishpur, Narsingdi Sadar, Bangladesh</div>
+                  </div>
+                </div>
+
+                {/* Focus */}
+                <div className="flex items-start gap-3">
+                  <div className="p-2 rounded-lg bg-slate-900 text-slate-400 shrink-0">
+                    <BrainCircuit className="w-4 h-4 text-cyan-400" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-mono text-slate-400 uppercase">Domain Focus</div>
+                    <div className="text-sm font-semibold text-slate-200">{profileData.snapshot.focus}</div>
+                    <div className="text-xs text-slate-400">EDA, Feature Engineering, Machine Learning, Modeling</div>
+                  </div>
+                </div>
+
+                {/* Academic Background */}
+                <div className="flex items-start gap-3">
+                  <div className="p-2 rounded-lg bg-slate-900 text-slate-400 shrink-0">
+                    <GraduationCap className="w-4 h-4 text-sky-400" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-mono text-slate-400 uppercase">Academic Degree</div>
+                    <div className="text-sm font-semibold text-slate-200">{profileData.snapshot.academicBackground}</div>
+                    <div className="text-xs text-slate-400">Govt. Shaheed Asad College, Shibpur</div>
+                  </div>
+                </div>
+
+                {/* Current Status */}
+                <div className="flex items-start gap-3">
+                  <div className="p-2 rounded-lg bg-slate-900 text-slate-400 shrink-0">
+                    <Clock className="w-4 h-4 text-amber-400" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-mono text-slate-400 uppercase">Academic Status</div>
+                    <div className="text-sm font-semibold text-amber-300">{profileData.snapshot.currentStatus}</div>
+                    <div className="text-xs text-slate-400">Session 2021–2022 · Expected Completion: 2027</div>
+                  </div>
+                </div>
+
+                {/* Career Target */}
+                <div className="flex items-start gap-3 pt-2 border-t border-slate-800/80">
+                  <div className="p-2 rounded-lg bg-cyan-950/60 text-cyan-400 shrink-0 border border-cyan-800/40">
+                    <Target className="w-4 h-4 text-cyan-400" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-mono text-cyan-400 uppercase font-semibold">Career Target</div>
+                    <div className="text-sm font-bold text-slate-100">{profileData.snapshot.targetRole}</div>
+                    <div className="text-xs text-slate-400">Ready for full-time junior roles &amp; analyst teams</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+};

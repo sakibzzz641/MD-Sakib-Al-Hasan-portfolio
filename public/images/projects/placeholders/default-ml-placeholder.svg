@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGradP3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b111e"/>
+      <stop offset="100%" stop-color="#141f36"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" rx="12" fill="url(#bgGradP3)"/>
+  <rect width="800" height="450" rx="12" fill="none" stroke="#1f293d" stroke-width="1.5"/>
+
+  <!-- Neural / graph nodes -->
+  <g stroke="#334155" stroke-width="1.5">
+    <line x1="200" y1="140" x2="380" y2="180"/>
+    <line x1="200" y1="225" x2="380" y2="180"/>
+    <line x1="200" y1="310" x2="380" y2="180"/>
+    <line x1="200" y1="140" x2="380" y2="270"/>
+    <line x1="200" y1="225" x2="380" y2="270"/>
+    <line x1="200" y1="310" x2="380" y2="270"/>
+    <line x1="380" y1="180" x2="580" y2="225"/>
+    <line x1="380" y1="270" x2="580" y2="225"/>
+  </g>
+
+  <!-- Nodes -->
+  <circle cx="200" cy="140" r="14" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+  <circle cx="200" cy="225" r="14" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+  <circle cx="200" cy="310" r="14" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+
+  <circle cx="380" cy="180" r="16" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="380" cy="270" r="16" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+
+  <circle cx="580" cy="225" r="18" fill="#1e293b" stroke="#10b981" stroke-width="2.5"/>
+
+  <text x="200" y="145" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" text-anchor="middle">X1</text>
+  <text x="200" y="230" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" text-anchor="middle">X2</text>
+  <text x="200" y="315" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" text-anchor="middle">Xn</text>
+  <text x="380" y="185" fill="#93c5fd" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" text-anchor="middle">f(x)</text>
+  <text x="380" y="275" fill="#93c5fd" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" text-anchor="middle">g(x)</text>
+  <text x="580" y="230" fill="#34d399" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" text-anchor="middle">y^</text>
+
+  <!-- Central Badge -->
+  <rect x="250" y="380" width="300" height="36" rx="18" fill="#1e293b" stroke="#334155"/>
+  <text x="400" y="403" fill="#cbd5e1" font-family="JetBrains Mono, monospace" font-size="12" font-weight="500" text-anchor="middle">Machine Learning Pipeline</text>
+</svg>

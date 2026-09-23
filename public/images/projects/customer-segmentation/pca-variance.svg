@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c1322"/>
+      <stop offset="100%" stop-color="#111c30"/>
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="areaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(6, 182, 212, 0.35)"/>
+      <stop offset="100%" stop-color="rgba(6, 182, 212, 0.0)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" rx="12" fill="url(#bgGrad)"/>
+  <rect width="800" height="450" rx="12" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- Grid Lines -->
+  <g stroke="#1e293b" stroke-width="1" stroke-dasharray="3 3">
+    <line x1="80" y1="360" x2="740" y2="360"/>
+    <line x1="80" y1="290" x2="740" y2="290"/>
+    <line x1="80" y1="220" x2="740" y2="220"/>
+    <line x1="80" y1="150" x2="740" y2="150"/>
+    <line x1="80" y1="80" x2="740" y2="80"/>
+  </g>
+
+  <!-- Threshold 95% line -->
+  <line x1="80" y1="105" x2="740" y2="105" stroke="#10b981" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <text x="735" y="98" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="end" font-weight="600">95% Variance Threshold (Component 9)</text>
+
+  <!-- Axes -->
+  <line x1="80" y1="70" x2="80" y2="370" stroke="#475569" stroke-width="1.5"/>
+  <line x1="80" y1="370" x2="750" y2="370" stroke="#475569" stroke-width="1.5"/>
+
+  <!-- Y-Axis Labels -->
+  <text x="68" y="374" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11" text-anchor="end">0%</text>
+  <text x="68" y="294" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11" text-anchor="end">25%</text>
+  <text x="68" y="224" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11" text-anchor="end">50%</text>
+  <text x="68" y="154" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11" text-anchor="end">75%</text>
+  <text x="68" y="84" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11" text-anchor="end">100%</text>
+
+  <!-- Y-Axis Title -->
+  <text x="30" y="220" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="12" font-weight="500" text-anchor="middle" transform="rotate(-90 30 220)">Cumulative Explained Variance</text>
+
+  <!-- Area under curve -->
+  <polygon points="120,300 170,250 230,210 290,175 350,150 420,132 490,120 560,112 630,105 690,100 690,370 120,370" fill="url(#areaGrad)"/>
+
+  <!-- Curve line -->
+  <polyline points="120,300 170,250 230,210 290,175 350,150 420,132 490,120 560,112 630,105 690,100" fill="none" stroke="url(#lineGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Data Points -->
+  <circle cx="120" cy="300" r="4.5" fill="#06b6d4" stroke="#0b0f17" stroke-width="2"/>
+  <circle cx="170" cy="250" r="4.5" fill="#06b6d4" stroke="#0b0f17" stroke-width="2"/>
+  <circle cx="230" cy="210" r="4.5" fill="#06b6d4" stroke="#0b0f17" stroke-width="2"/>
+  <circle cx="290" cy="175" r="4.5" fill="#06b6d4" stroke="#0b0f17" stroke-width="2"/>
+  <circle cx="350" cy="150" r="4.5" fill="#06b6d4" stroke="#0b0f17" stroke-width="2"/>
+  <circle cx="420" cy="132" r="4.5" fill="#06b6d4" stroke="#0b0f17" stroke-width="2"/>
+  <circle cx="490" cy="120" r="4.5" fill="#06b6d4" stroke="#0b0f17" stroke-width="2"/>
+  <circle cx="560" cy="112" r="4.5" fill="#06b6d4" stroke="#0b0f17" stroke-width="2"/>
+  
+  <!-- Highlighted Point (Comp 9 = 95%) -->
+  <circle cx="630" cy="105" r="7" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+  <circle cx="630" cy="105" r="12" fill="none" stroke="#10b981" stroke-width="1.5" opacity="0.4"/>
+  
+  <circle cx="690" cy="100" r="4.5" fill="#3b82f6" stroke="#0b0f17" stroke-width="2"/>
+
+  <!-- X-Axis Labels -->
+  <text x="120" y="390" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">PC1</text>
+  <text x="170" y="390" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">PC2</text>
+  <text x="230" y="390" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">PC3</text>
+  <text x="290" y="390" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">PC4</text>
+  <text x="350" y="390" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">PC5</text>
+  <text x="420" y="390" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">PC6</text>
+  <text x="490" y="390" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">PC7</text>
+  <text x="560" y="390" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">PC8</text>
+  <text x="630" y="390" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" text-anchor="middle">PC9 (95%)</text>
+  <text x="690" y="390" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">PC10</text>
+
+  <!-- X-Axis Title -->
+  <text x="420" y="420" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="12" font-weight="500" text-anchor="middle">Principal Components</text>
+
+  <!-- Title & Subtitle -->
+  <text x="80" y="40" fill="#f8fafc" font-family="Inter, sans-serif" font-size="15" font-weight="600">PCA Cumulative Explained Variance</text>
+  <text x="80" y="58" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11">Dataset: 8,950 Credit Card Accounts · Retaining 9 Components</text>
+</svg>
