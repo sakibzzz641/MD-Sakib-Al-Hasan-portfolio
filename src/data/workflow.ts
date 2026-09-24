@@ -76,7 +76,7 @@ export const workflowStepsData: WorkflowStep[] = [
       "Plot feature importance rankings and cluster profile radars",
       "Construct actionable dashboards and decision charts"
     ],
-    tools: ["Matplotlib", "Seaborn", "Plotly", "PCA Projections"]
+    tools: ["Matplotlib", "Seaborn", "Correlation Heatmaps", "PCA Projections"]
   },
   {
     step: "08",

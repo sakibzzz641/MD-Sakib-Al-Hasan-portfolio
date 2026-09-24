@@ -85,7 +85,9 @@ export const projectsData: Project[] = [
     ],
     tags: [
       "Customer Segmentation",
+      "Machine Learning",
       "Unsupervised Learning",
+      "Python",
       "K-Means",
       "DBSCAN",
       "PCA",
@@ -279,34 +281,50 @@ export const projectsData: Project[] = [
       "Distance-weighted voting improves stability over uniform neighborhood voting."
     ],
     tags: [
+      "Machine Learning",
       "Supervised Learning",
+      "Python",
       "Classification",
       "KNN",
       "Computer Vision Basics",
       "Confusion Matrix",
       "Scikit-learn"
     ],
-    images: [],
+    images: [
+      {
+        src: "/images/projects/digit-knn/accuracy-k-curve.svg",
+        alt: "KNN Accuracy vs K Value Curve",
+        caption: "Validation Accuracy across K (1-20) peaking at k=5 (98.4%)",
+        type: "chart"
+      },
+      {
+        src: "/images/projects/digit-knn/confusion-matrix.svg",
+        alt: "Handwritten Digits Confusion Matrix",
+        caption: "Multi-class 10x10 Confusion Matrix benchmarked on 1,000 test digits",
+        type: "diagram"
+      }
+    ],
     files: [],
     caseStudy: undefined
   },
   {
     id: "exploratory-data-analysis-pandas",
     slug: "exploratory-data-analysis-pandas",
-    title: "Exploratory Data Analysis with Pandas",
+    title: "Exploratory Data Analysis with SQL & Pandas",
     category: "Data Analysis / EDA",
     featured: false,
     date: "2025",
     status: "Completed",
     shortDescription:
-      "Performed end-to-end exploratory data analysis on real-world datasets, including data cleaning, missing-value handling, aggregation, and pattern detection using Pandas and NumPy.",
+      "Performed end-to-end exploratory data analysis on real-world datasets, querying relational data with SQL and executing cleaning, aggregation, and pattern detection using Pandas and NumPy.",
     description:
-      "A comprehensive exploratory data analysis (EDA) project focusing on structured tabular datasets. Demonstrates data wrangling techniques including type conversions, handling null/sparse data, univariate statistical summaries, bivariate correlation profiling, multi-dimensional group aggregations, and outlier detection with interquartile ranges (IQR). Visual findings are documented through clean statistical plotting with Seaborn and Matplotlib.",
+      "A comprehensive exploratory data analysis (EDA) project focusing on relational tables and structured tabular datasets. Demonstrates SQL querying (filtering, aggregations, CTEs, JOINs) and Python/Pandas data wrangling techniques including type conversions, handling null/sparse data, univariate statistical summaries, bivariate correlation profiling, multi-dimensional group aggregations, and outlier detection with interquartile ranges (IQR). Visual findings are documented through clean statistical plotting with Seaborn and Matplotlib.",
     problem:
       "Real-world data contains anomalies, missing values, mismatched data types, and implicit biases that will distort machine learning models if not thoroughly audited and understood.",
     objective:
       "Execute an end-to-end exploratory data analysis workflow uncovering actionable distributions, correlations, and anomalies from raw tabular data.",
     technologies: [
+      "SQL",
       "Python",
       "Pandas",
       "NumPy",
@@ -358,6 +376,8 @@ export const projectsData: Project[] = [
       "Vectorized operations in Pandas provide orders of magnitude performance gains over standard iterations."
     ],
     tags: [
+      "SQL",
+      "Python",
       "Exploratory Data Analysis",
       "Data Cleaning",
       "Pandas",
@@ -365,7 +385,20 @@ export const projectsData: Project[] = [
       "Visualization",
       "Statistics"
     ],
-    images: [],
+    images: [
+      {
+        src: "/images/projects/eda/correlation-matrix.svg",
+        alt: "Feature Pearson Correlation Matrix",
+        caption: "Correlation Matrix Heatmap across structured predictors (-1 to +1)",
+        type: "chart"
+      },
+      {
+        src: "/images/projects/eda/boxplots-distributions.svg",
+        alt: "Distribution Normalization and Outlier Audit",
+        caption: "Skewness distribution audit: Raw skewed vs Log-transformed bell curve",
+        type: "chart"
+      }
+    ],
     files: [],
     caseStudy: undefined
   }

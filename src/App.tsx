@@ -42,17 +42,17 @@ export default function App() {
         {/* About Section & Snapshot */}
         <About />
 
-        {/* Mathematics Meets Data Science Bridge */}
-        <MathematicsDataScience />
-
-        {/* 8-Stage Data Science Workflow */}
-        <Workflow />
-
         {/* Technical Skills & Coursework */}
         <Skills />
 
         {/* Featured Case Study & Filterable Projects */}
         <Projects />
+
+        {/* Mathematics Meets Data Science Bridge */}
+        <MathematicsDataScience />
+
+        {/* 8-Stage Data Science Workflow */}
+        <Workflow />
 
         {/* Professional Experience */}
         <Experience />

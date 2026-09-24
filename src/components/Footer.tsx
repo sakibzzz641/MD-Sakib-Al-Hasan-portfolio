@@ -109,12 +109,11 @@ export const Footer: React.FC = () => {
 
         </div>
 
-        <div className="mt-8 pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-600 gap-2">
+        <div className="mt-8 pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-center text-[11px] text-slate-600 gap-2">
           <div className="flex items-center gap-1.5">
             <Terminal className="w-3.5 h-3.5 text-cyan-500" />
-            <span>Built with React 19, TypeScript, Tailwind CSS &amp; Vite</span>
+            <span>Data Science &amp; Analytics Portfolio · MD. Sakib Al Hasan</span>
           </div>
-          <span>Deployable to Lovable, GitHub Pages, Vercel, and Netlify</span>
         </div>
       </div>
     </footer>

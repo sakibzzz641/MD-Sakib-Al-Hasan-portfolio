@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGradKnn" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c1322"/>
+      <stop offset="100%" stop-color="#111c30"/>
+    </linearGradient>
+    <linearGradient id="curveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="fillGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(56, 189, 248, 0.25)"/>
+      <stop offset="100%" stop-color="rgba(56, 189, 248, 0)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" rx="12" fill="url(#bgGradKnn)"/>
+  <rect width="800" height="450" rx="12" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- Title & Legend -->
+  <text x="80" y="45" fill="#f1f5f9" font-family="Inter, sans-serif" font-size="16" font-weight="700">KNN Classifier: Validation Accuracy vs. K Value</text>
+  <text x="80" y="65" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11">Handwritten Digit Recognition Benchmark (k = 1 to 20)</text>
+
+  <!-- Grid lines -->
+  <g stroke="#1e293b" stroke-width="1" stroke-dasharray="3 3">
+    <line x1="90" y1="360" x2="730" y2="360"/>
+    <line x1="90" y1="290" x2="730" y2="290"/>
+    <line x1="90" y1="220" x2="730" y2="220"/>
+    <line x1="90" y1="150" x2="730" y2="150"/>
+    <line x1="90" y1="90" x2="730" y2="90"/>
+  </g>
+
+  <!-- Axes -->
+  <line x1="90" y1="80" x2="90" y2="370" stroke="#475569" stroke-width="1.5"/>
+  <line x1="90" y1="370" x2="740" y2="370" stroke="#475569" stroke-width="1.5"/>
+
+  <!-- Y-Axis ticks -->
+  <text x="78" y="364" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="end">94%</text>
+  <text x="78" y="294" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="end">95%</text>
+  <text x="78" y="224" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="end">96%</text>
+  <text x="78" y="154" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="end">97%</text>
+  <text x="78" y="94" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="end">98.5%</text>
+
+  <!-- X-Axis ticks (k values) -->
+  <text x="130" y="390" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">k=1</text>
+  <text x="210" y="390" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">k=3</text>
+  <text x="290" y="390" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" text-anchor="middle">k=5*</text>
+  <text x="370" y="390" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">k=7</text>
+  <text x="450" y="390" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">k=9</text>
+  <text x="530" y="390" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">k=11</text>
+  <text x="610" y="390" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">k=15</text>
+  <text x="690" y="390" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">k=20</text>
+
+  <!-- Curve Area Fill -->
+  <path d="M 130 195 L 210 120 L 290 98 L 370 125 L 450 160 L 530 190 L 610 240 L 690 310 L 690 370 L 130 370 Z" fill="url(#fillGrad)"/>
+
+  <!-- Curve Stroke -->
+  <path d="M 130 195 L 210 120 L 290 98 L 370 125 L 450 160 L 530 190 L 610 240 L 690 310" fill="none" stroke="url(#curveGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Data Points -->
+  <circle cx="130" cy="195" r="4.5" fill="#38bdf8"/>
+  <circle cx="210" cy="120" r="4.5" fill="#38bdf8"/>
+  <!-- Peak Optimal point -->
+  <circle cx="290" cy="98" r="7" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+  <circle cx="370" cy="125" r="4.5" fill="#818cf8"/>
+  <circle cx="450" cy="160" r="4.5" fill="#818cf8"/>
+  <circle cx="530" cy="190" r="4.5" fill="#c084fc"/>
+  <circle cx="610" cy="240" r="4.5" fill="#c084fc"/>
+  <circle cx="690" cy="310" r="4.5" fill="#94a3b8"/>
+
+  <!-- Optimal Callout Badge -->
+  <rect x="235" y="55" width="135" height="30" rx="6" fill="#064e3b" stroke="#10b981" stroke-width="1.5"/>
+  <text x="302" y="74" fill="#34d399" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" text-anchor="middle">Optimal: 98.4% (k=5)</text>
+</svg>

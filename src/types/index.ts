@@ -86,6 +86,7 @@ export interface SkillItem {
   name: string;
   highlight?: boolean;
   note?: string;
+  level?: 'Basic' | 'Intermediate' | 'Core' | string;
 }
 
 export interface SkillCategory {

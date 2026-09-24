@@ -5,6 +5,7 @@ import {
   Sparkles, 
   Github, 
   Linkedin, 
+  Facebook,
   Database, 
   Cpu, 
   Binary, 
@@ -13,6 +14,7 @@ import {
 } from 'lucide-react';
 import { profileData } from '../data/profile';
 import { socialLinks } from '../data/socialLinks';
+import { downloadCvPdf } from '../utils/cvDownload';
 
 interface HeroProps {
   onOpenRecruiterSnapshot: () => void;
@@ -106,6 +108,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRecruiterSnapshot }) => {
               <span className="px-2.5 py-1 rounded bg-slate-800/80 border border-slate-700/60 text-sky-300">
                 SQL
               </span>
+              <span className="px-2.5 py-1 rounded bg-slate-800/80 border border-slate-700/60 text-teal-300">
+                EDA
+              </span>
               <span className="px-2.5 py-1 rounded bg-slate-800/80 border border-slate-700/60 text-indigo-300">
                 Data Analysis
               </span>
@@ -133,7 +138,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRecruiterSnapshot }) => {
               <a
                 href={profileData.cv.downloadPath}
                 download={profileData.cv.fileName}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold text-slate-200 dark:text-slate-200 light:text-slate-800 bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 border border-slate-700/80 dark:border-slate-700/80 light:border-slate-300 hover:bg-slate-700/60 transition-all hover:-translate-y-0.5"
+                onClick={(e) => {
+                  e.preventDefault();
+                  downloadCvPdf();
+                }}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold text-slate-200 dark:text-slate-200 light:text-slate-800 bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 border border-slate-700/80 dark:border-slate-700/80 light:border-slate-300 hover:bg-slate-700/60 transition-all hover:-translate-y-0.5 cursor-pointer"
               >
                 <Download className="w-4 h-4 text-cyan-400" />
                 <span>Download CV</span>
@@ -148,27 +157,46 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRecruiterSnapshot }) => {
               </button>
             </div>
 
-            {/* Social Links & Trust indicator */}
-            <div className="flex items-center gap-4 pt-3 text-xs text-slate-400 dark:text-slate-400 light:text-slate-600">
-              <span className="font-mono text-slate-500">Profiles:</span>
+            {/* Social Links & Profiles as Brand Buttons */}
+            <div className="flex flex-wrap items-center gap-2.5 pt-3 text-xs">
+              <span className="font-mono text-xs text-slate-400 font-medium mr-1">
+                Profiles:
+              </span>
+
+              {/* GitHub Button */}
               <a
                 href={socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-slate-300 hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-medium bg-slate-800/90 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700/80 hover:border-slate-500 shadow-sm shadow-black/30 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
+                aria-label="GitHub Profile (sakibzzz641)"
               >
-                <Github className="w-4 h-4" />
-                <span className="underline-offset-4 hover:underline">github.com/sakibzzz641</span>
+                <Github className="w-3.5 h-3.5 text-slate-300 group-hover:text-white transition-colors" />
+                <span>GitHub</span>
               </a>
-              <span className="text-slate-600">·</span>
+
+              {/* LinkedIn Button */}
               <a
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-slate-300 hover:text-[#0077b5] transition-colors"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-medium bg-[#0077b5]/15 hover:bg-[#0077b5] text-[#38bdf8] hover:text-white border border-[#0077b5]/40 hover:border-[#0077b5] shadow-sm shadow-[#0077b5]/20 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
+                aria-label="LinkedIn Profile (sakibzzz641)"
               >
-                <Linkedin className="w-4 h-4" />
-                <span className="underline-offset-4 hover:underline">LinkedIn</span>
+                <Linkedin className="w-3.5 h-3.5 text-[#38bdf8] group-hover:text-white transition-colors" />
+                <span>LinkedIn</span>
+              </a>
+
+              {/* Facebook Button */}
+              <a
+                href={socialLinks.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-medium bg-[#1877f2]/15 hover:bg-[#1877f2] text-[#60a5fa] hover:text-white border border-[#1877f2]/40 hover:border-[#1877f2] shadow-sm shadow-[#1877f2]/20 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
+                aria-label="Facebook Profile (sakibzzz641)"
+              >
+                <Facebook className="w-3.5 h-3.5 text-[#60a5fa] group-hover:text-white transition-colors" />
+                <span>Facebook</span>
               </a>
             </div>
           </div>

@@ -15,6 +15,7 @@ import {
 import { profileData } from '../data/profile';
 import { socialLinks } from '../data/socialLinks';
 import { Tooltip } from './Tooltip';
+import { downloadCvPdf } from '../utils/cvDownload';
 
 interface NavbarProps {
   onOpenRecruiterSnapshot: () => void;
@@ -103,21 +104,56 @@ export const Navbar: React.FC<NavbarProps> = ({
       setIsScrolled(window.scrollY > 20);
 
       const sectionIds = ['about', 'skills', 'projects', 'workflow', 'experience', 'education', 'certifications', 'contact'];
-      const scrollPosition = window.scrollY + 130;
 
-      for (let i = sectionIds.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sectionIds[i]);
-        if (el && el.offsetTop <= scrollPosition) {
-          setActiveSection(sectionIds[i]);
-          return;
+      // If at bottom of page, activate last section
+      const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60;
+      if (isAtBottom) {
+        setActiveSection('contact');
+        return;
+      }
+
+      // If at top of page (in hero section before about)
+      if (window.scrollY < 200) {
+        setActiveSection('');
+        return;
+      }
+
+      // Get accurate document positions for all sections
+      const sections = sectionIds
+        .map((id) => {
+          const el = document.getElementById(id);
+          if (!el) return null;
+          const rect = el.getBoundingClientRect();
+          const top = rect.top + window.scrollY;
+          return { id, top, height: el.offsetHeight };
+        })
+        .filter(Boolean) as { id: string; top: number; height: number }[];
+
+      // Sort by actual vertical page position
+      sections.sort((a, b) => a.top - b.top);
+
+      // Trigger line is 180px down from top (below navbar)
+      const triggerY = window.scrollY + 180;
+
+      let current = '';
+      for (let i = sections.length - 1; i >= 0; i--) {
+        if (triggerY >= sections[i].top) {
+          current = sections[i].id;
+          break;
         }
       }
-      setActiveSection('');
+
+      setActiveSection(current);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    const timer = setTimeout(handleScroll, 200);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
@@ -129,51 +165,56 @@ export const Navbar: React.FC<NavbarProps> = ({
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-3 lg:gap-5">
           {/* Logo & Identity */}
-          <a
-            href="#"
-            className="group flex items-center gap-2.5 focus:outline-none shrink-0"
-            aria-label="MD. Sakib Al Hasan Portfolio Home"
-          >
-            <div className="relative w-9 h-9 rounded-xl p-0.5 bg-gradient-to-tr from-cyan-500 via-sky-500 to-blue-600 shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform shrink-0 overflow-hidden flex items-center justify-center">
-              <img
-                src={profileData.photo}
-                alt={profileData.name}
-                className="w-full h-full rounded-[10px] object-cover object-top bg-slate-900"
-                onError={(e) => {
-                  const target = e.currentTarget;
-                  if (target.src !== profileData.photoGithubRaw) {
-                    target.src = profileData.photoGithubRaw;
-                  }
-                }}
-              />
-            </div>
-            <div className="flex flex-col min-w-0">
-              <span className="text-sm font-bold tracking-wider text-slate-100 dark:text-slate-100 light:text-slate-900 group-hover:text-cyan-400 transition-colors uppercase font-mono whitespace-nowrap">
-                {profileData.name}
-              </span>
-              <span className="text-[10px] tracking-tight text-slate-400 dark:text-slate-400 light:text-slate-500 whitespace-nowrap">
-                Junior Data Scientist · Analyst
-              </span>
-            </div>
-          </a>
+          <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+            <a
+              href="#"
+              className="group flex items-center gap-3 focus:outline-none py-1 px-2 -ml-2 rounded-xl transition-all duration-200 hover:bg-slate-800/40"
+              aria-label="MD. Sakib Al Hasan Portfolio Home"
+            >
+              <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl p-0.5 bg-gradient-to-tr from-cyan-500 via-sky-500 to-blue-600 shadow-md shadow-cyan-500/25 group-hover:scale-105 transition-transform shrink-0 overflow-hidden flex items-center justify-center">
+                <img
+                  src={profileData.photo}
+                  alt={profileData.name}
+                  className="w-full h-full rounded-[9px] object-cover object-top bg-slate-900"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (target.src !== profileData.photoGithubRaw) {
+                      target.src = profileData.photoGithubRaw;
+                    }
+                  }}
+                />
+              </div>
+              <div className="flex flex-col min-w-0 text-left">
+                <span className="text-sm font-extrabold tracking-wider text-slate-100 dark:text-slate-100 light:text-slate-900 group-hover:text-cyan-400 transition-colors uppercase font-mono whitespace-nowrap">
+                  {profileData.name}
+                </span>
+                <span className="text-[10px] font-medium tracking-tight text-cyan-400/90 dark:text-cyan-400/90 light:text-cyan-600 whitespace-nowrap">
+                  Junior Data Scientist · Analyst
+                </span>
+              </div>
+            </a>
+
+            {/* Vertical Divider separating Candidate Name and Nav Links */}
+            <div className="hidden lg:block h-6 w-px bg-slate-800 border-r border-slate-700/50" aria-hidden="true" />
+          </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-1" aria-label="Main Navigation">
+          <nav className="hidden lg:flex items-center space-x-0.5 xl:space-x-1" aria-label="Main Navigation">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
                 <a
                   key={link.label}
                   href={link.href}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all duration-200 cursor-pointer ${
+                  className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-xs font-medium border transition-all duration-200 cursor-pointer ${
                     isActive
                       ? link.activeClass
                       : `border-transparent text-slate-300 dark:text-slate-300 light:text-slate-700 ${link.hoverClass}`
                   }`}
                 >
-                  <span className="flex items-center gap-1.5">
+                  <span className="flex items-center gap-1.5 whitespace-nowrap">
                     {isActive && (
                       <span className={`w-1.5 h-1.5 rounded-full ${link.dotClass} animate-pulse`} />
                     )}
@@ -205,13 +246,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Download CV */}
             <Tooltip
               content="Curriculum Vitae"
-              subtext="Download PDF (350 KB)"
+              subtext="Download PDF (152 KB)"
               position="bottom"
             >
               <a
                 href={profileData.cv.downloadPath}
                 download={profileData.cv.fileName}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold text-white bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 transition-all shadow-md shadow-cyan-600/20 active:scale-95"
+                onClick={(e) => {
+                  e.preventDefault();
+                  downloadCvPdf();
+                }}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold text-white bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 transition-all shadow-md shadow-cyan-600/20 active:scale-95 cursor-pointer"
                 aria-label="Download CV PDF"
               >
                 <Download className="w-3.5 h-3.5" />
@@ -220,7 +265,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </Tooltip>
 
             {/* Social Icons */}
-            <div className="flex items-center gap-1 border-l border-slate-700/60 pl-2 ml-1">
+            <div className="flex items-center gap-1.5 border-l border-slate-700/60 pl-2.5 ml-1">
               <Tooltip
                 content="GitHub Profile"
                 subtext="sakibzzz641 · Repositories"
@@ -230,7 +275,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   href={socialLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-1.5 text-slate-400 hover:text-white dark:hover:text-white light:hover:text-slate-900 transition-colors rounded-md"
+                  className="w-8 h-8 flex items-center justify-center rounded-lg bg-slate-800/90 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700/80 hover:border-slate-500 shadow-sm shadow-black/30 transition-all duration-200 active:scale-95 cursor-pointer"
                   aria-label="GitHub Profile (sakibzzz641)"
                 >
                   <Github className="w-4 h-4" />
@@ -246,7 +291,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   href={socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-1.5 text-slate-400 hover:text-[#0077b5] transition-colors rounded-md"
+                  className="w-8 h-8 flex items-center justify-center rounded-lg bg-[#0077b5]/15 hover:bg-[#0077b5] text-[#38bdf8] hover:text-white border border-[#0077b5]/40 hover:border-[#0077b5] shadow-sm shadow-[#0077b5]/20 transition-all duration-200 active:scale-95 cursor-pointer"
                   aria-label="LinkedIn Profile (sakibzzz641)"
                 >
                   <Linkedin className="w-4 h-4" />
@@ -262,7 +307,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   href={socialLinks.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-1.5 text-slate-400 hover:text-[#1877f2] transition-colors rounded-md"
+                  className="w-8 h-8 flex items-center justify-center rounded-lg bg-[#1877f2]/15 hover:bg-[#1877f2] text-[#60a5fa] hover:text-white border border-[#1877f2]/40 hover:border-[#1877f2] shadow-sm shadow-[#1877f2]/20 transition-all duration-200 active:scale-95 cursor-pointer"
                   aria-label="Facebook Profile (sakibzzz641)"
                 >
                   <Facebook className="w-4 h-4" />
@@ -278,7 +323,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               >
                 <button
                   onClick={onToggleTheme}
-                  className="p-1.5 text-slate-400 hover:text-amber-400 transition-colors rounded-md cursor-pointer ml-1"
+                  className={`w-8 h-8 flex items-center justify-center rounded-lg border transition-all duration-200 active:scale-95 cursor-pointer ${
+                    theme === 'dark'
+                      ? 'bg-amber-500/15 hover:bg-amber-500/30 text-amber-400 border-amber-500/40 hover:border-amber-400 shadow-sm shadow-amber-500/20'
+                      : 'bg-indigo-500/15 hover:bg-indigo-500/30 text-indigo-500 border-indigo-500/40 hover:border-indigo-400 shadow-sm shadow-indigo-500/20'
+                  }`}
                   aria-label={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
                 >
                   {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -339,7 +388,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             <a
               href={profileData.cv.downloadPath}
               download={profileData.cv.fileName}
-              className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-xs font-medium text-white bg-cyan-600"
+              onClick={(e) => {
+                e.preventDefault();
+                downloadCvPdf();
+              }}
+              className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-xs font-medium text-white bg-cyan-600 active:scale-95 transition-transform cursor-pointer"
             >
               <Download className="w-3.5 h-3.5" />
               <span>CV PDF</span>
@@ -371,13 +424,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             })}
           </div>
 
-          <div className="flex items-center justify-around pt-3 border-t border-slate-800/80">
+          <div className="flex items-center justify-around gap-2 pt-3 border-t border-slate-800/80">
             <Tooltip position="top" content="GitHub" subtext="sakibzzz641">
               <a
                 href={socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-white"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800/90 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700/80 transition-all"
                 aria-label="GitHub Profile"
               >
                 <Github className="w-4 h-4" />
@@ -389,7 +442,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-[#0077b5]"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-[#0077b5]/15 hover:bg-[#0077b5] text-[#38bdf8] hover:text-white border border-[#0077b5]/40 transition-all"
                 aria-label="LinkedIn Profile"
               >
                 <Linkedin className="w-4 h-4" />
@@ -401,7 +454,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 href={socialLinks.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-[#1877f2]"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-[#1877f2]/15 hover:bg-[#1877f2] text-[#60a5fa] hover:text-white border border-[#1877f2]/40 transition-all"
                 aria-label="Facebook Profile"
               >
                 <Facebook className="w-4 h-4" />

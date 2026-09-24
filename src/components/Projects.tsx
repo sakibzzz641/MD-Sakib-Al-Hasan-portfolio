@@ -4,6 +4,9 @@ import {
   Github, 
   ExternalLink, 
   Search, 
+  X,
+  Tag,
+  RotateCcw,
   FileText, 
   Database, 
   Layers, 
@@ -18,14 +21,29 @@ import {
 import { Project } from '../types';
 import { projectsData, projectCategories } from '../data/projects';
 import { CaseStudyModal } from './CaseStudyModal';
+import { ProjectImageSlider } from './ProjectImageSlider';
 
 export const Projects: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCaseStudyProject, setActiveCaseStudyProject] = useState<Project | null>(null);
 
+  // Suggested popular tags for quick 1-click filtering
+  const popularTags = [
+    'Python',
+    'SQL',
+    'Machine Learning',
+    'Pandas',
+    'K-Means',
+    'Classification',
+    'EDA',
+    'Scikit-learn'
+  ];
+
   // Filtered projects
   const filteredProjects = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+
     return projectsData.filter((project) => {
       const matchesCategory =
         selectedCategory === 'All' ||
@@ -33,10 +51,13 @@ export const Projects: React.FC = () => {
         project.tags.some((t) => t.toLowerCase().includes(selectedCategory.toLowerCase()));
 
       const matchesSearch =
-        searchQuery === '' ||
-        project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        project.technologies.some((tech) => tech.toLowerCase().includes(searchQuery.toLowerCase()));
+        query === '' ||
+        project.title.toLowerCase().includes(query) ||
+        project.description.toLowerCase().includes(query) ||
+        project.shortDescription.toLowerCase().includes(query) ||
+        project.category.toLowerCase().includes(query) ||
+        project.technologies.some((tech) => tech.toLowerCase().includes(query)) ||
+        project.tags.some((tag) => tag.toLowerCase().includes(query));
 
       return matchesCategory && matchesSearch;
     });
@@ -263,14 +284,23 @@ export const Projects: React.FC = () => {
 
                 {/* Tech Pills */}
                 <div className="flex flex-wrap gap-1.5 pt-2">
-                  {featuredProject.technologies.slice(0, 6).map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2.5 py-0.5 rounded text-xs font-mono bg-slate-900 text-slate-300 border border-slate-800"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  {featuredProject.technologies.slice(0, 6).map((tech) => {
+                    const isTagActive = searchQuery.trim().toLowerCase() === tech.toLowerCase();
+                    return (
+                      <button
+                        key={tech}
+                        onClick={() => setSearchQuery(isTagActive ? '' : tech)}
+                        className={`px-2.5 py-0.5 rounded text-xs font-mono border transition-all cursor-pointer ${
+                          isTagActive
+                            ? 'bg-cyan-950 text-cyan-300 border-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.3)] font-bold'
+                            : 'bg-slate-900 text-slate-300 border-slate-800 hover:border-cyan-500/60 hover:text-cyan-300'
+                        }`}
+                        title={`Filter projects by tag '${tech}'`}
+                      >
+                        {tech}
+                      </button>
+                    );
+                  })}
                   {featuredProject.technologies.length > 6 && (
                     <span className="px-2 py-0.5 rounded text-xs font-mono bg-slate-900 text-slate-500">
                       +{featuredProject.technologies.length - 6} more
@@ -304,27 +334,21 @@ export const Projects: React.FC = () => {
                 </div>
               </div>
 
-              {/* Right Column: Visual Preview Banner */}
+              {/* Right Column: Visual Preview Banner with Photo Slider */}
               <div className="lg:col-span-5">
                 <div
-                  onClick={() => setActiveCaseStudyProject(featuredProject)}
-                  className="relative rounded-xl overflow-hidden border border-slate-700/80 bg-slate-950 p-3 shadow-xl cursor-pointer group/img"
-                  title="Click to view full case study and charts"
+                  className="relative rounded-xl overflow-hidden border border-slate-700/80 bg-slate-950 p-2 sm:p-3 shadow-xl group/img"
+                  title="Click image to view full case study"
                 >
-                  <div className="aspect-[16/10] w-full overflow-hidden rounded-lg bg-slate-900 flex items-center justify-center">
-                    <img
-                      src={getCoverImage(featuredProject)}
-                      alt="PCA Explained Variance for Customer Segmentation"
-                      className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div className="flex items-center justify-between pt-2 px-1 text-[11px] font-mono text-slate-400">
-                    <span className="flex items-center gap-1 text-cyan-400">
-                      <ImageIcon className="w-3.5 h-3.5" />
-                      <span>PCA Cumulative Variance Curve</span>
-                    </span>
-                    <span className="text-slate-500">3 Charts Available</span>
-                  </div>
+                  <ProjectImageSlider
+                    images={featuredProject.images}
+                    fallbackImage={getCoverImage(featuredProject)}
+                    projectTitle={featuredProject.title}
+                    onImageClick={() => setActiveCaseStudyProject(featuredProject)}
+                    showCaption={true}
+                    aspectRatioClass="aspect-[16/10] rounded-lg"
+                    autoSlideInterval={4500}
+                  />
                 </div>
               </div>
 
@@ -333,77 +357,139 @@ export const Projects: React.FC = () => {
         )}
 
         {/* Filter and Search Bar */}
-        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8">
-          
-          {/* Category Tabs */}
-          <div className="flex items-center gap-1.5 overflow-x-auto py-1 pb-2 text-xs font-mono min-h-[44px]">
-            {projectCategories.map((category) => {
-              const categoryThemes: Record<string, { active: string; hover: string; dot: string }> = {
-                'All': {
-                  active: 'bg-cyan-950/80 text-cyan-300 border-cyan-500 shadow-[0_0_12px_rgba(6,182,212,0.3)]',
-                  hover: 'hover:text-cyan-300 hover:border-cyan-500/60 hover:bg-cyan-950/40 hover:shadow-[0_0_10px_rgba(6,182,212,0.2)]',
-                  dot: 'bg-cyan-400'
-                },
-                'Machine Learning': {
-                  active: 'bg-purple-950/80 text-purple-300 border-purple-500 shadow-[0_0_12px_rgba(168,85,247,0.3)]',
-                  hover: 'hover:text-purple-300 hover:border-purple-500/60 hover:bg-purple-950/40 hover:shadow-[0_0_10px_rgba(168,85,247,0.2)]',
-                  dot: 'bg-purple-400'
-                },
-                'Classification': {
-                  active: 'bg-sky-950/80 text-sky-300 border-sky-500 shadow-[0_0_12px_rgba(14,165,233,0.3)]',
-                  hover: 'hover:text-sky-300 hover:border-sky-500/60 hover:bg-sky-950/40 hover:shadow-[0_0_10px_rgba(14,165,233,0.2)]',
-                  dot: 'bg-sky-400'
-                },
-                'Clustering': {
-                  active: 'bg-amber-950/80 text-amber-300 border-amber-500 shadow-[0_0_12px_rgba(245,158,11,0.3)]',
-                  hover: 'hover:text-amber-300 hover:border-amber-500/60 hover:bg-amber-950/40 hover:shadow-[0_0_10px_rgba(245,158,11,0.2)]',
-                  dot: 'bg-amber-400'
-                },
-                'Data Analysis': {
-                  active: 'bg-emerald-950/80 text-emerald-300 border-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.3)]',
-                  hover: 'hover:text-emerald-300 hover:border-emerald-500/60 hover:bg-emerald-950/40 hover:shadow-[0_0_10px_rgba(16,185,129,0.2)]',
-                  dot: 'bg-emerald-400'
-                },
-                'EDA': {
-                  active: 'bg-rose-950/80 text-rose-300 border-rose-500 shadow-[0_0_12px_rgba(244,63,94,0.3)]',
-                  hover: 'hover:text-rose-300 hover:border-rose-500/60 hover:bg-rose-950/40 hover:shadow-[0_0_10px_rgba(244,63,94,0.2)]',
-                  dot: 'bg-rose-400'
-                }
-              };
-              const theme = categoryThemes[category] || categoryThemes['All'];
-              const isSelected = selectedCategory === category;
+        <div className="space-y-4 mb-8">
+          <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+            
+            {/* Category Tabs */}
+            <div className="flex items-center gap-1.5 overflow-x-auto py-1 pb-2 text-xs font-mono min-h-[44px]">
+              {projectCategories.map((category) => {
+                const categoryThemes: Record<string, { active: string; hover: string; dot: string }> = {
+                  'All': {
+                    active: 'bg-cyan-950/80 text-cyan-300 border-cyan-500 shadow-[0_0_12px_rgba(6,182,212,0.3)]',
+                    hover: 'hover:text-cyan-300 hover:border-cyan-500/60 hover:bg-cyan-950/40 hover:shadow-[0_0_10px_rgba(6,182,212,0.2)]',
+                    dot: 'bg-cyan-400'
+                  },
+                  'Machine Learning': {
+                    active: 'bg-purple-950/80 text-purple-300 border-purple-500 shadow-[0_0_12px_rgba(168,85,247,0.3)]',
+                    hover: 'hover:text-purple-300 hover:border-purple-500/60 hover:bg-purple-950/40 hover:shadow-[0_0_10px_rgba(168,85,247,0.2)]',
+                    dot: 'bg-purple-400'
+                  },
+                  'Classification': {
+                    active: 'bg-sky-950/80 text-sky-300 border-sky-500 shadow-[0_0_12px_rgba(14,165,233,0.3)]',
+                    hover: 'hover:text-sky-300 hover:border-sky-500/60 hover:bg-sky-950/40 hover:shadow-[0_0_10px_rgba(14,165,233,0.2)]',
+                    dot: 'bg-sky-400'
+                  },
+                  'Clustering': {
+                    active: 'bg-amber-950/80 text-amber-300 border-amber-500 shadow-[0_0_12px_rgba(245,158,11,0.3)]',
+                    hover: 'hover:text-amber-300 hover:border-amber-500/60 hover:bg-amber-950/40 hover:shadow-[0_0_10px_rgba(245,158,11,0.2)]',
+                    dot: 'bg-amber-400'
+                  },
+                  'Data Analysis': {
+                    active: 'bg-emerald-950/80 text-emerald-300 border-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.3)]',
+                    hover: 'hover:text-emerald-300 hover:border-emerald-500/60 hover:bg-emerald-950/40 hover:shadow-[0_0_10px_rgba(16,185,129,0.2)]',
+                    dot: 'bg-emerald-400'
+                  },
+                  'EDA': {
+                    active: 'bg-rose-950/80 text-rose-300 border-rose-500 shadow-[0_0_12px_rgba(244,63,94,0.3)]',
+                    hover: 'hover:text-rose-300 hover:border-rose-500/60 hover:bg-rose-950/40 hover:shadow-[0_0_10px_rgba(244,63,94,0.2)]',
+                    dot: 'bg-rose-400'
+                  }
+                };
+                const theme = categoryThemes[category] || categoryThemes['All'];
+                const isSelected = selectedCategory === category;
 
-              return (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-3.5 py-2 rounded-lg border whitespace-nowrap transition-all duration-200 cursor-pointer flex items-center gap-1.5 shrink-0 ${
-                    isSelected
-                      ? `${theme.active} font-bold`
-                      : `bg-[#0e1626]/70 text-slate-400 border-slate-800 ${theme.hover}`
-                  }`}
-                >
-                  <span
-                    className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
-                      isSelected ? `${theme.dot} scale-125` : 'bg-slate-600'
+                return (
+                  <button
+                    key={category}
+                    onClick={() => setSelectedCategory(category)}
+                    className={`px-3.5 py-2 rounded-lg border whitespace-nowrap transition-all duration-200 cursor-pointer flex items-center gap-1.5 shrink-0 ${
+                      isSelected
+                        ? `${theme.active} font-bold`
+                        : `bg-[#0e1626]/70 text-slate-400 border-slate-800 ${theme.hover}`
                     }`}
-                  />
-                  <span>{category}</span>
+                  >
+                    <span
+                      className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
+                        isSelected ? `${theme.dot} scale-125` : 'bg-slate-600'
+                      }`}
+                    />
+                    <span>{category}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Search Input Field with Tag Filtering */}
+            <div className="relative w-full lg:w-96">
+              <Search className="w-4 h-4 text-cyan-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <input
+                type="text"
+                placeholder="Filter by tag (e.g. 'Python', 'SQL', 'Machine Learning')..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-9 py-2 rounded-xl bg-[#0e1626] border border-slate-800 text-xs text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50 font-mono shadow-inner transition-all"
+                aria-label="Filter projects by tags or keyword"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-white rounded-md hover:bg-slate-800 transition-colors cursor-pointer"
+                  title="Clear search"
+                  aria-label="Clear search input"
+                >
+                  <X className="w-3.5 h-3.5" />
                 </button>
-              );
-            })}
+              )}
+            </div>
           </div>
 
-          {/* Search Input */}
-          <div className="relative max-w-xs w-full">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-            <input
-              type="text"
-              placeholder="Search technologies, titles..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-1.5 rounded-lg bg-[#0e1626] border border-slate-800 text-xs text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-cyan-500 font-mono"
-            />
+          {/* Quick Tag Pills Bar */}
+          <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 text-xs font-mono">
+            <span className="inline-flex items-center gap-1.5 text-slate-400 text-[11px] font-semibold">
+              <Tag className="w-3.5 h-3.5 text-cyan-400" />
+              Filter by Tag:
+            </span>
+            <div className="flex flex-wrap items-center gap-1.5">
+              {popularTags.map((tag) => {
+                const isTagActive = searchQuery.trim().toLowerCase() === tag.toLowerCase();
+                return (
+                  <button
+                    key={tag}
+                    onClick={() => {
+                      if (isTagActive) {
+                        setSearchQuery('');
+                      } else {
+                        setSearchQuery(tag);
+                      }
+                    }}
+                    className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] transition-all duration-150 cursor-pointer ${
+                      isTagActive
+                        ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.3)] font-bold'
+                        : 'bg-slate-900/90 text-slate-400 border border-slate-800 hover:border-slate-700 hover:text-cyan-300 hover:bg-slate-800'
+                    }`}
+                  >
+                    <span>#{tag}</span>
+                    {isTagActive && <X className="w-3 h-3 text-cyan-400" />}
+                  </button>
+                );
+              })}
+            </div>
+
+            {(searchQuery !== '' || selectedCategory !== 'All') && (
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchQuery('');
+                  setSelectedCategory('All');
+                }}
+                className="inline-flex items-center gap-1 ml-auto text-[11px] text-rose-400 hover:text-rose-300 hover:underline cursor-pointer transition-colors"
+                title="Reset search query and category filters"
+              >
+                <RotateCcw className="w-3 h-3" />
+                <span>Reset Filters ({filteredProjects.length} found)</span>
+              </button>
+            )}
           </div>
         </div>
 
@@ -415,22 +501,25 @@ export const Projects: React.FC = () => {
               className="rounded-2xl bg-[#0e1626]/80 border border-[#1f2d47] overflow-hidden shadow-lg flex flex-col justify-between hover:border-slate-600 transition-all group"
             >
               <div>
-                {/* Card Thumbnail / Header */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-950 border-b border-slate-800 p-2 flex items-center justify-center">
-                  <img
-                    src={getCoverImage(project)}
-                    alt={project.title}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
+                {/* Card Thumbnail / Photo Slider */}
+                <div className="relative w-full border-b border-slate-800 bg-slate-950">
+                  <ProjectImageSlider
+                    images={project.images}
+                    fallbackImage={getCoverImage(project)}
+                    projectTitle={project.title}
+                    onImageClick={() => project.caseStudy && setActiveCaseStudyProject(project)}
+                    showCaption={false}
+                    aspectRatioClass="aspect-[16/10]"
+                    autoSlideInterval={4800}
                   />
-                  <div className="absolute top-3 left-3">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-slate-900/90 text-cyan-300 border border-slate-700 backdrop-blur-sm">
+                  <div className="absolute top-2.5 left-2.5 z-10 pointer-events-none">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-slate-900/90 text-cyan-300 border border-slate-700 backdrop-blur-sm shadow-sm">
                       {project.category}
                     </span>
                   </div>
                   {project.featured && (
-                    <div className="absolute top-3 right-3">
-                      <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-cyan-950 text-cyan-400 border border-cyan-800">
+                    <div className="absolute top-2.5 right-12 z-10 pointer-events-none">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-cyan-950 text-cyan-400 border border-cyan-800 shadow-sm">
                         Featured
                       </span>
                     </div>
@@ -465,18 +554,31 @@ export const Projects: React.FC = () => {
                   )}
 
                   {/* Tech Tags */}
-                  <div className="flex flex-wrap gap-1 pt-2">
-                    {project.technologies.slice(0, 4).map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-900 text-slate-300 border border-slate-800"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 4 && (
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {project.technologies.slice(0, 5).map((tech) => {
+                      const isTagActive = searchQuery.trim().toLowerCase() === tech.toLowerCase();
+                      return (
+                        <button
+                          key={tech}
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSearchQuery(isTagActive ? '' : tech);
+                          }}
+                          className={`px-2 py-0.5 rounded text-[10px] font-mono border transition-all cursor-pointer ${
+                            isTagActive
+                              ? 'bg-cyan-950 text-cyan-300 border-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.3)] font-bold'
+                              : 'bg-slate-900 text-slate-300 border-slate-800 hover:border-cyan-500/60 hover:text-cyan-300'
+                          }`}
+                          title={`Click to filter by tag '${tech}'`}
+                        >
+                          {tech}
+                        </button>
+                      );
+                    })}
+                    {project.technologies.length > 5 && (
                       <span className="px-1.5 py-0.5 rounded text-[10px] font-mono bg-slate-900 text-slate-500">
-                        +{project.technologies.length - 4}
+                        +{project.technologies.length - 5}
                       </span>
                     )}
                   </div>
@@ -504,11 +606,71 @@ export const Projects: React.FC = () => {
         </div>
 
         {filteredProjects.length === 0 && (
-          <div className="p-12 text-center rounded-2xl bg-[#0e1626] border border-slate-800 space-y-2">
-            <p className="text-sm font-semibold text-slate-300">No matching projects found.</p>
-            <p className="text-xs text-slate-500 font-mono">
-              Try adjusting your category filter or search query.
-            </p>
+          <div className="p-12 text-center rounded-2xl bg-[#0e1626] border border-slate-800 space-y-4">
+            <div className="w-12 h-12 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center mx-auto text-slate-400">
+              <Search className="w-5 h-5 text-cyan-400" />
+            </div>
+            <div className="space-y-1">
+              <p className="text-base font-bold text-slate-100">No matching projects found</p>
+              <p className="text-xs text-slate-400 font-mono">
+                {searchQuery ? (
+                  <>
+                    No projects found matching the search tag <span className="text-cyan-400 font-bold">"{searchQuery}"</span>
+                    {selectedCategory !== 'All' ? ` under the "${selectedCategory}" category` : ''}.
+                  </>
+                ) : (
+                  <>No projects found in the selected category.</>
+                )}
+              </p>
+            </div>
+            
+            <div className="flex flex-wrap items-center justify-center gap-2 pt-1 text-xs">
+              <span className="text-slate-500 font-mono text-[11px]">Suggested tag filters:</span>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedCategory('All');
+                  setSearchQuery('Python');
+                }}
+                className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-cyan-300 hover:border-cyan-500 font-mono text-[11px] cursor-pointer"
+              >
+                #Python
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedCategory('All');
+                  setSearchQuery('SQL');
+                }}
+                className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-cyan-300 hover:border-cyan-500 font-mono text-[11px] cursor-pointer"
+              >
+                #SQL
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedCategory('All');
+                  setSearchQuery('Machine Learning');
+                }}
+                className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-cyan-300 hover:border-cyan-500 font-mono text-[11px] cursor-pointer"
+              >
+                #Machine Learning
+              </button>
+            </div>
+
+            <div>
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchQuery('');
+                  setSelectedCategory('All');
+                }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-colors cursor-pointer"
+              >
+                <RotateCcw className="w-3.5 h-3.5 text-cyan-400" />
+                <span>Reset All Filters &amp; Show All Projects</span>
+              </button>
+            </div>
           </div>
         )}
 

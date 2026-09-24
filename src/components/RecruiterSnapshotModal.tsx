@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { profileData } from '../data/profile';
 import { socialLinks } from '../data/socialLinks';
+import { downloadCvPdf } from '../utils/cvDownload';
 
 interface RecruiterSnapshotModalProps {
   isOpen: boolean;
@@ -119,7 +120,7 @@ export const RecruiterSnapshotModal: React.FC<RecruiterSnapshotModalProps> = ({
                 Python, SQL, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn
               </div>
               <div className="text-[11px] text-slate-400">
-                Clustering, Classification, Feature Engineering, PCA, EDA
+                Regression, Clustering, Classification, Feature Engineering, PCA, EDA
               </div>
             </div>
 
@@ -207,7 +208,11 @@ export const RecruiterSnapshotModal: React.FC<RecruiterSnapshotModalProps> = ({
             <a
               href={profileData.cv.downloadPath}
               download={profileData.cv.fileName}
-              className="inline-flex items-center gap-1.5 px-5 py-2 rounded-lg text-xs font-bold text-white bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 shadow-md shadow-cyan-600/25 transition-all"
+              onClick={(e) => {
+                e.preventDefault();
+                downloadCvPdf();
+              }}
+              className="inline-flex items-center gap-1.5 px-5 py-2 rounded-lg text-xs font-bold text-white bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 shadow-md shadow-cyan-600/25 transition-all cursor-pointer active:scale-95"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Download CV PDF</span>

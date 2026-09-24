@@ -130,12 +130,17 @@ export const Skills: React.FC = () => {
                     >
                       <div className="flex items-center justify-between text-xs font-semibold text-slate-200">
                         <span className="flex items-center gap-1.5">
-                          <span className={`w-1.5 h-1.5 rounded-full ${skill.highlight ? 'bg-cyan-400' : 'bg-slate-500'}`} />
+                          <span className={`w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_6px_rgba(6,182,212,0.7)] shrink-0 ${skill.highlight ? 'ring-2 ring-cyan-400/30' : ''}`} />
                           <span className="group-hover/item:text-cyan-300 transition-colors">{skill.name}</span>
                         </span>
                         {skill.highlight && (
-                          <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-cyan-950/80 text-cyan-400 border border-cyan-800/60">
+                          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-950/80 text-cyan-400 border border-cyan-800/60">
                             Core
+                          </span>
+                        )}
+                        {!skill.highlight && skill.level === 'Basic' && (
+                          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700/80">
+                            Basic
                           </span>
                         )}
                       </div>

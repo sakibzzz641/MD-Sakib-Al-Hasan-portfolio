@@ -29,7 +29,7 @@ export const skillCategoriesData: SkillCategory[] = [
     description: "End-to-end algorithmic modeling, validation, and dimensionality reduction.",
     iconName: "Cpu",
     skills: [
-      { name: "Regression", highlight: false, note: "Linear, Ridge, Lasso, and polynomial modeling" },
+      { name: "Regression", highlight: true, note: "Linear, Ridge, Lasso, and polynomial predictive modeling" },
       { name: "Classification", highlight: true, note: "KNN, Logistic Regression, Decision Trees & Ensembles" },
       { name: "Clustering", highlight: true, note: "K-Means, Hierarchical (Agglomerative), and DBSCAN" },
       { name: "Feature Engineering", highlight: true, note: "Log-transforms, encoding, scaling, and feature interactions" },
@@ -46,7 +46,6 @@ export const skillCategoriesData: SkillCategory[] = [
     skills: [
       { name: "Matplotlib", highlight: true, note: "Publication-grade scientific charts, subplots & custom axes" },
       { name: "Seaborn", highlight: true, note: "Statistical distributions, correlation heatmaps & pairplots" },
-      { name: "Plotly", highlight: false, note: "Interactive web visual charts & scatter exploration" },
       { name: "Dashboard Design", highlight: false, note: "Structured information hierarchy & KPI layout" },
       { name: "Visual Analytics", highlight: true, note: "Translating multi-dimensional data into business narratives" }
     ]
@@ -63,14 +62,14 @@ export const skillCategoriesData: SkillCategory[] = [
     ]
   },
   {
-    title: "Productivity & Office",
-    description: "Structured spreadsheet calculations, documentation, and executive presentations.",
+    title: "Productivity & Office (Basic)",
+    description: "Fundamental operational proficiency in office tools for data entry, documentation, and reporting.",
     iconName: "FileSpreadsheet",
     skills: [
-      { name: "MS Excel", highlight: true, note: "VLOOKUP, Pivot Tables, Formulas & Tabular Organization" },
-      { name: "MS Word", highlight: false, note: "Technical documentation, reporting & project briefs" },
-      { name: "MS PowerPoint", highlight: false, note: "Data storytelling & executive presentation decks" },
-      { name: "MS Access", highlight: false, note: "Relational database basics & form/query architecture" }
+      { name: "MS Excel", highlight: false, level: "Basic", note: "Basic formulas (SUM, AVERAGE, COUNT), data entry, sorting & simple tables" },
+      { name: "MS Word", highlight: false, level: "Basic", note: "Document formatting, reports, technical writing & clean layouts" },
+      { name: "MS PowerPoint", highlight: false, level: "Basic", note: "Slide deck creation, presentation outlines & visual structuring" },
+      { name: "MS Access", highlight: false, level: "Basic", note: "Fundamental database tables, simple queries & data entry forms" }
     ]
   }
 ];
