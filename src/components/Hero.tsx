@@ -76,8 +76,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRecruiterSnapshot }) => {
                 <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-[#090d15]" title="Available for opportunities" />
               </div>
 
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-800/60 text-cyan-300 text-xs font-mono tracking-wide shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-950/60 dark:bg-cyan-950/60 light:bg-cyan-50 border border-cyan-800/60 dark:border-cyan-800/60 light:border-cyan-300 text-cyan-300 dark:text-cyan-300 light:text-cyan-800 text-xs font-mono tracking-wide shadow-sm font-semibold">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 light:bg-cyan-600 animate-pulse" />
                 <span>{profileData.eyebrow}</span>
               </div>
             </div>
@@ -150,9 +150,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRecruiterSnapshot }) => {
 
               <button
                 onClick={onOpenRecruiterSnapshot}
-                className="inline-flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-cyan-300 bg-cyan-950/40 border border-cyan-800/60 hover:bg-cyan-900/40 transition-colors cursor-pointer"
+                className="inline-flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-cyan-300 dark:text-cyan-300 light:text-cyan-800 bg-cyan-950/40 dark:bg-cyan-950/40 light:bg-cyan-50/90 border border-cyan-800/60 dark:border-cyan-800/60 light:border-cyan-400 hover:bg-cyan-900/40 dark:hover:bg-cyan-900/40 light:hover:bg-cyan-100/90 light:hover:border-cyan-500 light:hover:text-cyan-900 transition-colors cursor-pointer shadow-xs"
               >
-                <Sparkles className="w-4 h-4 text-cyan-400" />
+                <Sparkles className="w-4 h-4 text-cyan-400 light:text-cyan-600" />
                 <span>Recruiter Snapshot</span>
               </button>
             </div>
@@ -215,23 +215,23 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRecruiterSnapshot }) => {
                     pca_clustering_eval.py
                   </span>
                 </div>
-                <div className="flex items-center gap-1 bg-slate-900/80 rounded-md p-0.5 border border-slate-800">
+                <div className="flex items-center gap-1 bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-200/90 rounded-md p-1 border border-slate-800 dark:border-slate-800 light:border-slate-300">
                   <button
                     onClick={() => setActiveTab('clustering')}
-                    className={`px-2 py-0.5 text-[11px] font-mono rounded ${
+                    className={`px-2.5 py-0.5 text-[11px] font-mono rounded transition-all cursor-pointer ${
                       activeTab === 'clustering'
-                        ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
-                        : 'text-slate-400 hover:text-slate-300'
+                        ? 'bg-cyan-500/20 dark:bg-cyan-500/20 light:bg-white text-cyan-300 dark:text-cyan-300 light:text-cyan-800 border border-cyan-500/50 dark:border-cyan-500/40 light:border-cyan-600 font-bold shadow-sm'
+                        : 'text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-slate-200 dark:hover:text-slate-300 light:hover:text-slate-900 border border-transparent'
                     }`}
                   >
                     PCA k=2
                   </button>
                   <button
                     onClick={() => setActiveTab('regression')}
-                    className={`px-2 py-0.5 text-[11px] font-mono rounded ${
+                    className={`px-2.5 py-0.5 text-[11px] font-mono rounded transition-all cursor-pointer ${
                       activeTab === 'regression'
-                        ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
-                        : 'text-slate-400 hover:text-slate-300'
+                        ? 'bg-cyan-500/20 dark:bg-cyan-500/20 light:bg-white text-cyan-300 dark:text-cyan-300 light:text-cyan-800 border border-cyan-500/50 dark:border-cyan-500/40 light:border-cyan-600 font-bold shadow-sm'
+                        : 'text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-slate-200 dark:hover:text-slate-300 light:hover:text-slate-900 border border-transparent'
                     }`}
                   >
                     Residuals

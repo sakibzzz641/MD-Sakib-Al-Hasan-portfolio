@@ -46,16 +46,16 @@ export const ProjectFiles: React.FC<ProjectFilesProps> = ({ files }) => {
   const getTypeBadgeColor = (type: string) => {
     switch (type.toUpperCase()) {
       case 'IPYNB':
-        return 'bg-amber-950/80 text-amber-400 border-amber-800/60';
+        return 'bg-amber-950/80 dark:bg-amber-950/80 light:bg-amber-100 text-amber-400 dark:text-amber-400 light:text-amber-800 border-amber-800/60 dark:border-amber-800/60 light:border-amber-300 font-semibold';
       case 'ZIP':
-        return 'bg-indigo-950/80 text-indigo-400 border-indigo-800/60';
+        return 'bg-indigo-950/80 dark:bg-indigo-950/80 light:bg-indigo-100 text-indigo-400 dark:text-indigo-400 light:text-indigo-800 border-indigo-800/60 dark:border-indigo-800/60 light:border-indigo-300 font-semibold';
       case 'CSV':
       case 'XLSX':
-        return 'bg-emerald-950/80 text-emerald-400 border-emerald-800/60';
+        return 'bg-emerald-950/80 dark:bg-emerald-950/80 light:bg-emerald-100 text-emerald-400 dark:text-emerald-400 light:text-emerald-800 border-emerald-800/60 dark:border-emerald-800/60 light:border-emerald-300 font-semibold';
       case 'PDF':
-        return 'bg-rose-950/80 text-rose-400 border-rose-800/60';
+        return 'bg-rose-950/80 dark:bg-rose-950/80 light:bg-rose-100 text-rose-400 dark:text-rose-400 light:text-rose-800 border-rose-800/60 dark:border-rose-800/60 light:border-rose-300 font-semibold';
       default:
-        return 'bg-cyan-950/80 text-cyan-400 border-cyan-800/60';
+        return 'bg-cyan-950/80 dark:bg-cyan-950/80 light:bg-cyan-100 text-cyan-400 dark:text-cyan-400 light:text-cyan-800 border-cyan-800/60 dark:border-cyan-800/60 light:border-cyan-300 font-semibold';
     }
   };
 
@@ -96,7 +96,7 @@ export const ProjectFiles: React.FC<ProjectFilesProps> = ({ files }) => {
                 href={file.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-cyan-300 bg-cyan-950/60 border border-cyan-800 hover:bg-cyan-900/60 transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-cyan-300 dark:text-cyan-300 light:text-cyan-900 bg-cyan-950/60 dark:bg-cyan-950/60 light:bg-cyan-50 border border-cyan-800 dark:border-cyan-800 light:border-cyan-300 hover:bg-cyan-900/60 dark:hover:bg-cyan-900/60 light:hover:bg-cyan-100 transition-colors shadow-xs"
               >
                 <span>View on GitHub</span>
                 <ExternalLink className="w-3.5 h-3.5" />

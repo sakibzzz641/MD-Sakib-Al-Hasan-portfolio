@@ -90,7 +90,7 @@ export const ProjectImageSlider: React.FC<ProjectImageSliderProps> = ({
       onClick={onImageClick}
     >
       {/* Slide Image Container */}
-      <div className={`w-full ${aspectRatioClass} bg-slate-950 flex items-center justify-center relative overflow-hidden`}>
+      <div className={`w-full ${aspectRatioClass} bg-slate-950 dark:bg-slate-950 light:bg-slate-100/90 flex items-center justify-center relative overflow-hidden`}>
         <img
           key={currentSlide.src}
           src={currentSlide.src}
@@ -102,8 +102,8 @@ export const ProjectImageSlider: React.FC<ProjectImageSliderProps> = ({
         {/* Multi-Photo Counter Badge */}
         {hasMultiple && (
           <div className="absolute top-2.5 right-2.5 z-10">
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-slate-950/80 text-cyan-300 border border-cyan-500/40 backdrop-blur-md shadow-md">
-              <Layers className="w-3 h-3 text-cyan-400" />
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-slate-950/80 dark:bg-slate-950/80 light:bg-white/95 text-cyan-300 dark:text-cyan-300 light:text-cyan-800 border border-cyan-500/40 dark:border-cyan-500/40 light:border-cyan-400 backdrop-blur-md shadow-md">
+              <Layers className="w-3 h-3 text-cyan-400 light:text-cyan-600" />
               <span>{currentIndex + 1}/{slides.length}</span>
             </span>
           </div>
@@ -115,7 +115,7 @@ export const ProjectImageSlider: React.FC<ProjectImageSliderProps> = ({
             type="button"
             onClick={handlePrev}
             aria-label="Previous photo"
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-slate-950/70 hover:bg-cyan-950/90 text-slate-300 hover:text-white border border-slate-700/80 hover:border-cyan-400/80 flex items-center justify-center backdrop-blur-sm shadow-lg transition-all duration-200 opacity-90 sm:opacity-0 sm:group-hover/slider:opacity-100 hover:scale-110 cursor-pointer"
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-slate-950/70 dark:bg-slate-950/70 light:bg-white/95 hover:bg-cyan-950/90 dark:hover:bg-cyan-950/90 light:hover:bg-cyan-50 text-slate-300 dark:text-slate-300 light:text-slate-800 hover:text-white dark:hover:text-white light:hover:text-cyan-700 border border-slate-700/80 dark:border-slate-700/80 light:border-slate-300 hover:border-cyan-400/80 flex items-center justify-center backdrop-blur-sm shadow-lg transition-all duration-200 opacity-90 sm:opacity-0 sm:group-hover/slider:opacity-100 hover:scale-110 cursor-pointer"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
@@ -127,7 +127,7 @@ export const ProjectImageSlider: React.FC<ProjectImageSliderProps> = ({
             type="button"
             onClick={handleNext}
             aria-label="Next photo"
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-slate-950/70 hover:bg-cyan-950/90 text-slate-300 hover:text-white border border-slate-700/80 hover:border-cyan-400/80 flex items-center justify-center backdrop-blur-sm shadow-lg transition-all duration-200 opacity-90 sm:opacity-0 sm:group-hover/slider:opacity-100 hover:scale-110 cursor-pointer"
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-slate-950/70 dark:bg-slate-950/70 light:bg-white/95 hover:bg-cyan-950/90 dark:hover:bg-cyan-950/90 light:hover:bg-cyan-50 text-slate-300 dark:text-slate-300 light:text-slate-800 hover:text-white dark:hover:text-white light:hover:text-cyan-700 border border-slate-700/80 dark:border-slate-700/80 light:border-slate-300 hover:border-cyan-400/80 flex items-center justify-center backdrop-blur-sm shadow-lg transition-all duration-200 opacity-90 sm:opacity-0 sm:group-hover/slider:opacity-100 hover:scale-110 cursor-pointer"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
@@ -135,7 +135,7 @@ export const ProjectImageSlider: React.FC<ProjectImageSliderProps> = ({
 
         {/* Dot Indicators */}
         {hasMultiple && (
-          <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/75 border border-slate-800 backdrop-blur-sm shadow-md">
+          <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/75 dark:bg-slate-950/75 light:bg-white/95 border border-slate-800 dark:border-slate-800 light:border-slate-300 backdrop-blur-sm shadow-md">
             {slides.map((_, idx) => {
               const isActive = idx === currentIndex;
               return (
@@ -146,8 +146,8 @@ export const ProjectImageSlider: React.FC<ProjectImageSliderProps> = ({
                   aria-label={`Go to slide ${idx + 1}`}
                   className={`transition-all duration-200 cursor-pointer rounded-full ${
                     isActive
-                      ? 'w-4 h-1.5 bg-cyan-400 shadow-[0_0_6px_rgba(6,182,212,0.8)]'
-                      : 'w-1.5 h-1.5 bg-slate-600 hover:bg-slate-400'
+                      ? 'w-4 h-1.5 bg-cyan-400 dark:bg-cyan-400 light:bg-cyan-600 shadow-[0_0_6px_rgba(6,182,212,0.8)]'
+                      : 'w-1.5 h-1.5 bg-slate-600 dark:bg-slate-600 light:bg-slate-300 hover:bg-slate-400 dark:hover:bg-slate-400 light:hover:bg-slate-500'
                   }`}
                 />
               );
@@ -158,9 +158,9 @@ export const ProjectImageSlider: React.FC<ProjectImageSliderProps> = ({
 
       {/* Caption bar */}
       {showCaption && currentSlide.caption && (
-        <div className="flex items-center justify-between pt-2 px-2 text-[11px] font-mono text-slate-400 bg-slate-950/50">
-          <span className="flex items-center gap-1.5 text-cyan-300 truncate">
-            <ImageIcon className="w-3 h-3 text-cyan-400 shrink-0" />
+        <div className="flex items-center justify-between pt-2 px-2.5 pb-1 text-[11px] font-mono text-slate-400 dark:text-slate-400 light:text-slate-600 bg-slate-950/50 dark:bg-slate-950/50 light:bg-slate-50 border-t border-transparent light:border-slate-200">
+          <span className="flex items-center gap-1.5 text-cyan-300 dark:text-cyan-300 light:text-cyan-800 font-medium truncate">
+            <ImageIcon className="w-3 h-3 text-cyan-400 light:text-cyan-600 shrink-0" />
             <span className="truncate">{currentSlide.caption}</span>
           </span>
           {hasMultiple && (

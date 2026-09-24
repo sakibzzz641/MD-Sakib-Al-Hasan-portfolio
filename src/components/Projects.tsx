@@ -122,9 +122,9 @@ export const Projects: React.FC = () => {
         <button
           key="casestudy"
           onClick={() => setActiveCaseStudyProject(project)}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-cyan-300 bg-cyan-950/80 border border-cyan-800/80 hover:bg-cyan-900/60 transition-colors cursor-pointer"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-cyan-300 dark:text-cyan-300 light:text-cyan-900 bg-cyan-950/80 dark:bg-cyan-950/80 light:bg-cyan-50 border border-cyan-800/80 dark:border-cyan-800/80 light:border-cyan-300 hover:bg-cyan-900/60 dark:hover:bg-cyan-900/60 light:hover:bg-cyan-100 transition-colors cursor-pointer shadow-xs"
         >
-          <FileText className="w-3.5 h-3.5 text-cyan-400" />
+          <FileText className="w-3.5 h-3.5 text-cyan-400 light:text-cyan-700" />
           <span>Case Study</span>
         </button>
       );
@@ -138,9 +138,9 @@ export const Projects: React.FC = () => {
           href={project.notebookUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-amber-300 bg-amber-950/60 border border-amber-800/60 hover:bg-amber-900/60 transition-colors"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-amber-300 dark:text-amber-300 light:text-amber-900 bg-amber-950/60 dark:bg-amber-950/60 light:bg-amber-50 border border-amber-800/60 dark:border-amber-800/60 light:border-amber-300 hover:bg-amber-900/60 dark:hover:bg-amber-900/60 light:hover:bg-amber-100 transition-colors shadow-xs"
         >
-          <FileCode className="w-3.5 h-3.5" />
+          <FileCode className="w-3.5 h-3.5 text-amber-400 light:text-amber-700" />
           <span>Notebook</span>
         </a>
       );
@@ -154,9 +154,9 @@ export const Projects: React.FC = () => {
           href={project.datasetUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-emerald-300 bg-emerald-950/60 border border-emerald-800/60 hover:bg-emerald-900/60 transition-colors"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-emerald-300 dark:text-emerald-300 light:text-emerald-900 bg-emerald-950/60 dark:bg-emerald-950/60 light:bg-emerald-50 border border-emerald-800/60 dark:border-emerald-800/60 light:border-emerald-300 hover:bg-emerald-900/60 dark:hover:bg-emerald-900/60 light:hover:bg-emerald-100 transition-colors shadow-xs"
         >
-          <Database className="w-3.5 h-3.5" />
+          <Database className="w-3.5 h-3.5 text-emerald-400 light:text-emerald-700" />
           <span>Dataset</span>
         </a>
       );
@@ -170,9 +170,9 @@ export const Projects: React.FC = () => {
           href={project.documentationUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 bg-slate-800 hover:bg-slate-700 transition-colors"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 dark:text-slate-300 light:text-slate-800 bg-slate-800 dark:bg-slate-800 light:bg-slate-100 border border-transparent light:border-slate-300 hover:bg-slate-700 dark:hover:bg-slate-700 light:hover:bg-slate-200 transition-colors shadow-xs"
         >
-          <BookOpen className="w-3.5 h-3.5" />
+          <BookOpen className="w-3.5 h-3.5 light:text-slate-700" />
           <span>Docs</span>
         </a>
       );
@@ -186,9 +186,9 @@ export const Projects: React.FC = () => {
           href={project.presentationUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-indigo-300 bg-indigo-950/60 border border-indigo-800/60 hover:bg-indigo-900/60 transition-colors"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-indigo-300 dark:text-indigo-300 light:text-indigo-900 bg-indigo-950/60 dark:bg-indigo-950/60 light:bg-indigo-50 border border-indigo-800/60 dark:border-indigo-800/60 light:border-indigo-300 hover:bg-indigo-900/60 dark:hover:bg-indigo-900/60 light:hover:bg-indigo-100 transition-colors shadow-xs"
         >
-          <FileText className="w-3.5 h-3.5" />
+          <FileText className="w-3.5 h-3.5 text-indigo-400 light:text-indigo-700" />
           <span>Slides</span>
         </a>
       );
@@ -202,9 +202,9 @@ export const Projects: React.FC = () => {
           href={project.videoUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-rose-300 bg-rose-950/60 border border-rose-800/60 hover:bg-rose-900/60 transition-colors"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-rose-300 dark:text-rose-300 light:text-rose-900 bg-rose-950/60 dark:bg-rose-950/60 light:bg-rose-50 border border-rose-800/60 dark:border-rose-800/60 light:border-rose-300 hover:bg-rose-900/60 dark:hover:bg-rose-900/60 light:hover:bg-rose-100 transition-colors shadow-xs"
         >
-          <PlayCircle className="w-3.5 h-3.5" />
+          <PlayCircle className="w-3.5 h-3.5 text-rose-400 light:text-rose-700" />
           <span>Video</span>
         </a>
       );
@@ -292,8 +292,8 @@ export const Projects: React.FC = () => {
                         onClick={() => setSearchQuery(isTagActive ? '' : tech)}
                         className={`px-2.5 py-0.5 rounded text-xs font-mono border transition-all cursor-pointer ${
                           isTagActive
-                            ? 'bg-cyan-950 text-cyan-300 border-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.3)] font-bold'
-                            : 'bg-slate-900 text-slate-300 border-slate-800 hover:border-cyan-500/60 hover:text-cyan-300'
+                            ? 'bg-cyan-950 dark:bg-cyan-950 light:bg-cyan-100 text-cyan-300 dark:text-cyan-300 light:text-cyan-900 border-cyan-500 dark:border-cyan-500 light:border-cyan-600 shadow-[0_0_8px_rgba(6,182,212,0.3)] font-bold'
+                            : 'bg-slate-900 dark:bg-slate-900 light:bg-white text-slate-300 dark:text-slate-300 light:text-slate-700 border-slate-800 dark:border-slate-800 light:border-slate-300 hover:border-cyan-500/60 light:hover:border-cyan-500 hover:text-cyan-300 light:hover:text-cyan-900'
                         }`}
                         title={`Filter projects by tag '${tech}'`}
                       >
@@ -361,38 +361,38 @@ export const Projects: React.FC = () => {
           <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
             
             {/* Category Tabs */}
-            <div className="flex items-center gap-1.5 overflow-x-auto py-1 pb-2 text-xs font-mono min-h-[44px]">
+            <div className="flex items-center gap-1.5 overflow-x-auto py-1 pb-2 text-xs font-mono min-h-[44px]" role="tablist" aria-label="Project Categories">
               {projectCategories.map((category) => {
                 const categoryThemes: Record<string, { active: string; hover: string; dot: string }> = {
                   'All': {
-                    active: 'bg-cyan-950/80 text-cyan-300 border-cyan-500 shadow-[0_0_12px_rgba(6,182,212,0.3)]',
-                    hover: 'hover:text-cyan-300 hover:border-cyan-500/60 hover:bg-cyan-950/40 hover:shadow-[0_0_10px_rgba(6,182,212,0.2)]',
-                    dot: 'bg-cyan-400'
+                    active: 'bg-cyan-950/80 dark:bg-cyan-950/80 light:bg-cyan-50 text-cyan-300 dark:text-cyan-300 light:text-cyan-900 border-cyan-500 dark:border-cyan-500 light:border-cyan-600 shadow-[0_0_12px_rgba(6,182,212,0.3)] light:shadow-sm light:ring-1 light:ring-cyan-500/40',
+                    hover: 'hover:text-cyan-300 dark:hover:text-cyan-300 light:hover:text-cyan-900 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 light:hover:border-cyan-500 hover:bg-cyan-950/40 dark:hover:bg-cyan-950/40 light:hover:bg-cyan-50/70',
+                    dot: 'bg-cyan-400 light:bg-cyan-600'
                   },
                   'Machine Learning': {
-                    active: 'bg-purple-950/80 text-purple-300 border-purple-500 shadow-[0_0_12px_rgba(168,85,247,0.3)]',
-                    hover: 'hover:text-purple-300 hover:border-purple-500/60 hover:bg-purple-950/40 hover:shadow-[0_0_10px_rgba(168,85,247,0.2)]',
-                    dot: 'bg-purple-400'
+                    active: 'bg-purple-950/80 dark:bg-purple-950/80 light:bg-purple-50 text-purple-300 dark:text-purple-300 light:text-purple-900 border-purple-500 dark:border-purple-500 light:border-purple-600 shadow-[0_0_12px_rgba(168,85,247,0.3)] light:shadow-sm light:ring-1 light:ring-purple-500/40',
+                    hover: 'hover:text-purple-300 dark:hover:text-purple-300 light:hover:text-purple-900 hover:border-purple-500/60 dark:hover:border-purple-500/60 light:hover:border-purple-500 hover:bg-purple-950/40 dark:hover:bg-purple-950/40 light:hover:bg-purple-50/70',
+                    dot: 'bg-purple-400 light:bg-purple-600'
                   },
                   'Classification': {
-                    active: 'bg-sky-950/80 text-sky-300 border-sky-500 shadow-[0_0_12px_rgba(14,165,233,0.3)]',
-                    hover: 'hover:text-sky-300 hover:border-sky-500/60 hover:bg-sky-950/40 hover:shadow-[0_0_10px_rgba(14,165,233,0.2)]',
-                    dot: 'bg-sky-400'
+                    active: 'bg-sky-950/80 dark:bg-sky-950/80 light:bg-sky-50 text-sky-300 dark:text-sky-300 light:text-sky-900 border-sky-500 dark:border-sky-500 light:border-sky-600 shadow-[0_0_12px_rgba(14,165,233,0.3)] light:shadow-sm light:ring-1 light:ring-sky-500/40',
+                    hover: 'hover:text-sky-300 dark:hover:text-sky-300 light:hover:text-sky-900 hover:border-sky-500/60 dark:hover:border-sky-500/60 light:hover:border-sky-500 hover:bg-sky-950/40 dark:hover:bg-sky-950/40 light:hover:bg-sky-50/70',
+                    dot: 'bg-sky-400 light:bg-sky-600'
                   },
                   'Clustering': {
-                    active: 'bg-amber-950/80 text-amber-300 border-amber-500 shadow-[0_0_12px_rgba(245,158,11,0.3)]',
-                    hover: 'hover:text-amber-300 hover:border-amber-500/60 hover:bg-amber-950/40 hover:shadow-[0_0_10px_rgba(245,158,11,0.2)]',
-                    dot: 'bg-amber-400'
+                    active: 'bg-amber-950/80 dark:bg-amber-950/80 light:bg-amber-50 text-amber-300 dark:text-amber-300 light:text-amber-900 border-amber-500 dark:border-amber-500 light:border-amber-600 shadow-[0_0_12px_rgba(245,158,11,0.3)] light:shadow-sm light:ring-1 light:ring-amber-500/40',
+                    hover: 'hover:text-amber-300 dark:hover:text-amber-300 light:hover:text-amber-900 hover:border-amber-500/60 dark:hover:border-amber-500/60 light:hover:border-amber-500 hover:bg-amber-950/40 dark:hover:bg-amber-950/40 light:hover:bg-amber-50/70',
+                    dot: 'bg-amber-400 light:bg-amber-600'
                   },
                   'Data Analysis': {
-                    active: 'bg-emerald-950/80 text-emerald-300 border-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.3)]',
-                    hover: 'hover:text-emerald-300 hover:border-emerald-500/60 hover:bg-emerald-950/40 hover:shadow-[0_0_10px_rgba(16,185,129,0.2)]',
-                    dot: 'bg-emerald-400'
+                    active: 'bg-emerald-950/80 dark:bg-emerald-950/80 light:bg-emerald-50 text-emerald-300 dark:text-emerald-300 light:text-emerald-900 border-emerald-500 dark:border-emerald-500 light:border-emerald-600 shadow-[0_0_12px_rgba(16,185,129,0.3)] light:shadow-sm light:ring-1 light:ring-emerald-500/40',
+                    hover: 'hover:text-emerald-300 dark:hover:text-emerald-300 light:hover:text-emerald-900 hover:border-emerald-500/60 dark:hover:border-emerald-500/60 light:hover:border-emerald-500 hover:bg-emerald-950/40 dark:hover:bg-emerald-950/40 light:hover:bg-emerald-50/70',
+                    dot: 'bg-emerald-400 light:bg-emerald-600'
                   },
                   'EDA': {
-                    active: 'bg-rose-950/80 text-rose-300 border-rose-500 shadow-[0_0_12px_rgba(244,63,94,0.3)]',
-                    hover: 'hover:text-rose-300 hover:border-rose-500/60 hover:bg-rose-950/40 hover:shadow-[0_0_10px_rgba(244,63,94,0.2)]',
-                    dot: 'bg-rose-400'
+                    active: 'bg-rose-950/80 dark:bg-rose-950/80 light:bg-rose-50 text-rose-300 dark:text-rose-300 light:text-rose-900 border-rose-500 dark:border-rose-500 light:border-rose-600 shadow-[0_0_12px_rgba(244,63,94,0.3)] light:shadow-sm light:ring-1 light:ring-rose-500/40',
+                    hover: 'hover:text-rose-300 dark:hover:text-rose-300 light:hover:text-rose-900 hover:border-rose-500/60 dark:hover:border-rose-500/60 light:hover:border-rose-500 hover:bg-rose-950/40 dark:hover:bg-rose-950/40 light:hover:bg-rose-50/70',
+                    dot: 'bg-rose-400 light:bg-rose-600'
                   }
                 };
                 const theme = categoryThemes[category] || categoryThemes['All'];
@@ -401,16 +401,18 @@ export const Projects: React.FC = () => {
                 return (
                   <button
                     key={category}
+                    role="tab"
+                    aria-selected={isSelected}
                     onClick={() => setSelectedCategory(category)}
-                    className={`px-3.5 py-2 rounded-lg border whitespace-nowrap transition-all duration-200 cursor-pointer flex items-center gap-1.5 shrink-0 ${
+                    className={`px-3.5 py-2 rounded-lg border-2 whitespace-nowrap transition-all duration-200 cursor-pointer flex items-center gap-1.5 shrink-0 ${
                       isSelected
                         ? `${theme.active} font-bold`
-                        : `bg-[#0e1626]/70 text-slate-400 border-slate-800 ${theme.hover}`
+                        : `bg-[#0e1626]/70 dark:bg-[#0e1626]/70 light:bg-white text-slate-400 dark:text-slate-400 light:text-slate-700 border-slate-800 dark:border-slate-800 light:border-slate-300 light:shadow-sm hover:border-slate-600 dark:hover:border-slate-600 light:hover:border-slate-400 ${theme.hover}`
                     }`}
                   >
                     <span
                       className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
-                        isSelected ? `${theme.dot} scale-125` : 'bg-slate-600'
+                        isSelected ? `${theme.dot} scale-125` : 'bg-slate-600 dark:bg-slate-600 light:bg-slate-400'
                       }`}
                     />
                     <span>{category}</span>
@@ -465,8 +467,8 @@ export const Projects: React.FC = () => {
                     }}
                     className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] transition-all duration-150 cursor-pointer ${
                       isTagActive
-                        ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.3)] font-bold'
-                        : 'bg-slate-900/90 text-slate-400 border border-slate-800 hover:border-slate-700 hover:text-cyan-300 hover:bg-slate-800'
+                        ? 'bg-cyan-500/20 dark:bg-cyan-500/20 light:bg-cyan-100 text-cyan-300 dark:text-cyan-300 light:text-cyan-900 border border-cyan-400 dark:border-cyan-400 light:border-cyan-600 shadow-[0_0_10px_rgba(6,182,212,0.3)] font-bold'
+                        : 'bg-slate-900/90 dark:bg-slate-900/90 light:bg-white text-slate-400 dark:text-slate-400 light:text-slate-700 border border-slate-800 dark:border-slate-800 light:border-slate-300 hover:border-slate-700 dark:hover:border-slate-700 light:hover:border-slate-400 hover:text-cyan-300 light:hover:text-cyan-900 hover:bg-slate-800 dark:hover:bg-slate-800 light:hover:bg-slate-50'
                     }`}
                   >
                     <span>#{tag}</span>
@@ -513,13 +515,13 @@ export const Projects: React.FC = () => {
                     autoSlideInterval={4800}
                   />
                   <div className="absolute top-2.5 left-2.5 z-10 pointer-events-none">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-slate-900/90 text-cyan-300 border border-slate-700 backdrop-blur-sm shadow-sm">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-slate-900/90 dark:bg-slate-900/90 light:bg-white/95 text-cyan-300 dark:text-cyan-300 light:text-cyan-800 border border-slate-700 dark:border-slate-700 light:border-slate-300 backdrop-blur-sm shadow-sm">
                       {project.category}
                     </span>
                   </div>
                   {project.featured && (
                     <div className="absolute top-2.5 right-12 z-10 pointer-events-none">
-                      <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-cyan-950 text-cyan-400 border border-cyan-800 shadow-sm">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-cyan-950 dark:bg-cyan-950 light:bg-cyan-100 text-cyan-400 dark:text-cyan-400 light:text-cyan-800 border border-cyan-800 dark:border-cyan-800 light:border-cyan-300 shadow-sm font-semibold">
                         Featured
                       </span>
                     </div>
@@ -567,8 +569,8 @@ export const Projects: React.FC = () => {
                           }}
                           className={`px-2 py-0.5 rounded text-[10px] font-mono border transition-all cursor-pointer ${
                             isTagActive
-                              ? 'bg-cyan-950 text-cyan-300 border-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.3)] font-bold'
-                              : 'bg-slate-900 text-slate-300 border-slate-800 hover:border-cyan-500/60 hover:text-cyan-300'
+                              ? 'bg-cyan-950 dark:bg-cyan-950 light:bg-cyan-100 text-cyan-300 dark:text-cyan-300 light:text-cyan-900 border-cyan-500 dark:border-cyan-500 light:border-cyan-600 shadow-[0_0_8px_rgba(6,182,212,0.3)] font-bold'
+                              : 'bg-slate-900 dark:bg-slate-900 light:bg-white text-slate-300 dark:text-slate-300 light:text-slate-700 border-slate-800 dark:border-slate-800 light:border-slate-300 hover:border-cyan-500/60 light:hover:border-cyan-500 hover:text-cyan-300 light:hover:text-cyan-900'
                           }`}
                           title={`Click to filter by tag '${tech}'`}
                         >

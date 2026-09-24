@@ -35,23 +35,25 @@ export const Workflow: React.FC = () => {
         </div>
 
         {/* 8-Step Interactive Navigation Tabs */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5 mb-8" role="tablist" aria-label="Workflow Steps">
           {workflowStepsData.map((step, idx) => {
             const isSelected = selectedStepIndex === idx;
             return (
               <button
                 key={step.step}
+                role="tab"
+                aria-selected={isSelected}
                 onClick={() => setSelectedStepIndex(idx)}
-                className={`flex flex-col items-center justify-center p-3 rounded-xl border text-center transition-all cursor-pointer ${
+                className={`flex flex-col items-center justify-center p-3 rounded-xl border-2 text-center transition-all cursor-pointer ${
                   isSelected
-                    ? 'bg-cyan-950/60 border-cyan-500 text-cyan-300 shadow-md shadow-cyan-900/20'
-                    : 'bg-[#0e1626]/70 border-[#1f2d47] text-slate-400 hover:text-slate-200 hover:border-slate-700'
+                    ? 'bg-cyan-950/70 dark:bg-cyan-950/70 light:bg-cyan-50 border-cyan-500 dark:border-cyan-500 light:border-cyan-600 text-cyan-300 dark:text-cyan-300 light:text-cyan-900 shadow-lg shadow-cyan-900/30 light:shadow-cyan-600/15 light:ring-2 light:ring-cyan-500/40 font-bold scale-[1.02]'
+                    : 'bg-[#0e1626]/80 dark:bg-[#0e1626]/80 light:bg-white border-[#1f2d47] dark:border-[#1f2d47] light:border-slate-300 text-slate-400 dark:text-slate-400 light:text-slate-700 hover:text-slate-200 dark:hover:text-slate-200 light:hover:text-slate-900 hover:border-slate-600 dark:hover:border-slate-600 light:hover:border-cyan-500 light:hover:bg-slate-50'
                 }`}
               >
-                <span className={`font-mono text-xs font-bold ${isSelected ? 'text-cyan-400' : 'text-slate-500'}`}>
+                <span className={`font-mono text-xs font-bold ${isSelected ? 'text-cyan-400 dark:text-cyan-400 light:text-cyan-700' : 'text-slate-500 dark:text-slate-500 light:text-slate-500'}`}>
                   {step.step}
                 </span>
-                <span className="text-xs font-semibold mt-1">
+                <span className={`text-xs font-semibold mt-1 ${isSelected ? 'text-slate-100 dark:text-slate-100 light:text-slate-900' : 'text-slate-400 dark:text-slate-400 light:text-slate-700'}`}>
                   {step.title}
                 </span>
               </button>

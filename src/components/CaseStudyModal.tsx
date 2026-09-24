@@ -42,7 +42,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
         <div className="p-5 sm:p-6 border-b border-[#1f2d47] bg-[#090d15] flex items-start justify-between gap-4 shrink-0">
           <div>
             <div className="flex flex-wrap items-center gap-2 mb-2 font-mono text-xs">
-              <span className="px-2.5 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800">
+              <span className="px-2.5 py-0.5 rounded bg-cyan-950 dark:bg-cyan-950 light:bg-cyan-100 text-cyan-400 dark:text-cyan-400 light:text-cyan-800 border border-cyan-800 dark:border-cyan-800 light:border-cyan-300 font-semibold">
                 CASE STUDY
               </span>
               <span className="text-slate-400">{project.category}</span>
@@ -77,52 +77,60 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
         </div>
 
         {/* Tab Strip */}
-        <div className="px-4 sm:px-6 border-b border-[#1f2d47] bg-[#0c121e] flex gap-2 sm:gap-6 overflow-x-auto text-xs font-semibold font-mono shrink-0 min-h-[54px] items-stretch">
+        <div className="px-4 sm:px-6 border-b border-[#1f2d47] dark:border-[#1f2d47] light:border-slate-300 bg-[#0c121e] dark:bg-[#0c121e] light:bg-slate-100/90 flex gap-2 sm:gap-4 overflow-x-auto text-xs font-semibold font-mono shrink-0 min-h-[58px] items-center" role="tablist" aria-label="Case Study Tabs">
           <button
+            role="tab"
+            aria-selected={activeTab === 'study'}
             onClick={() => setActiveTab('study')}
-            className={`py-3.5 border-b-2 flex items-center gap-2 transition-all duration-200 cursor-pointer whitespace-nowrap px-2.5 shrink-0 ${
+            className={`py-2 px-3 rounded-lg border-2 flex items-center gap-2 transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 ${
               activeTab === 'study'
-                ? 'border-cyan-400 text-cyan-300'
-                : 'border-transparent text-slate-400 hover:text-cyan-400 hover:border-cyan-400/60'
+                ? 'border-cyan-500 dark:border-cyan-400 light:border-cyan-600 bg-cyan-950/60 dark:bg-cyan-950/60 light:bg-white text-cyan-300 dark:text-cyan-300 light:text-cyan-900 shadow-md shadow-cyan-950/30 light:shadow-sm light:ring-1 light:ring-cyan-500/40 font-bold'
+                : 'border-transparent light:border-slate-300 text-slate-400 dark:text-slate-400 light:text-slate-700 light:bg-white/60 hover:text-cyan-400 dark:hover:text-cyan-400 light:hover:text-cyan-900 hover:border-cyan-500/40 dark:hover:border-cyan-400/60 light:hover:border-slate-400 light:hover:bg-white'
             }`}
           >
-            <FileText className="w-4 h-4" />
+            <FileText className="w-4 h-4 text-cyan-400 light:text-cyan-700" />
             <span>Full Case Study</span>
           </button>
 
           <button
+            role="tab"
+            aria-selected={activeTab === 'pipeline'}
             onClick={() => setActiveTab('pipeline')}
-            className={`py-3.5 border-b-2 flex items-center gap-2 transition-all duration-200 cursor-pointer whitespace-nowrap px-2.5 shrink-0 ${
+            className={`py-2 px-3 rounded-lg border-2 flex items-center gap-2 transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 ${
               activeTab === 'pipeline'
-                ? 'border-purple-400 text-purple-300'
-                : 'border-transparent text-slate-400 hover:text-purple-400 hover:border-purple-400/60'
+                ? 'border-purple-500 dark:border-purple-400 light:border-purple-600 bg-purple-950/60 dark:bg-purple-950/60 light:bg-white text-purple-300 dark:text-purple-300 light:text-purple-900 shadow-md shadow-purple-950/30 light:shadow-sm light:ring-1 light:ring-purple-500/40 font-bold'
+                : 'border-transparent light:border-slate-300 text-slate-400 dark:text-slate-400 light:text-slate-700 light:bg-white/60 hover:text-purple-400 dark:hover:text-purple-400 light:hover:text-purple-900 hover:border-purple-500/40 dark:hover:border-purple-400/60 light:hover:border-slate-400 light:hover:bg-white'
             }`}
           >
-            <Layers className="w-4 h-4" />
+            <Layers className="w-4 h-4 text-purple-400 light:text-purple-700" />
             <span>10-Stage Pipeline</span>
           </button>
 
           <button
+            role="tab"
+            aria-selected={activeTab === 'visuals'}
             onClick={() => setActiveTab('visuals')}
-            className={`py-3.5 border-b-2 flex items-center gap-2 transition-all duration-200 cursor-pointer whitespace-nowrap px-2.5 shrink-0 ${
+            className={`py-2 px-3 rounded-lg border-2 flex items-center gap-2 transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 ${
               activeTab === 'visuals'
-                ? 'border-emerald-400 text-emerald-300'
-                : 'border-transparent text-slate-400 hover:text-emerald-400 hover:border-emerald-400/60'
+                ? 'border-emerald-500 dark:border-emerald-400 light:border-emerald-600 bg-emerald-950/60 dark:bg-emerald-950/60 light:bg-white text-emerald-300 dark:text-emerald-300 light:text-emerald-900 shadow-md shadow-emerald-950/30 light:shadow-sm light:ring-1 light:ring-emerald-500/40 font-bold'
+                : 'border-transparent light:border-slate-300 text-slate-400 dark:text-slate-400 light:text-slate-700 light:bg-white/60 hover:text-emerald-400 dark:hover:text-emerald-400 light:hover:text-emerald-900 hover:border-emerald-500/40 dark:hover:border-emerald-400/60 light:hover:border-slate-400 light:hover:bg-white'
             }`}
           >
-            <ImageIcon className="w-4 h-4" />
+            <ImageIcon className="w-4 h-4 text-emerald-400 light:text-emerald-700" />
             <span>Charts &amp; Visuals ({project.images.length})</span>
           </button>
 
           <button
+            role="tab"
+            aria-selected={activeTab === 'files'}
             onClick={() => setActiveTab('files')}
-            className={`py-3.5 border-b-2 flex items-center gap-2 transition-all duration-200 cursor-pointer whitespace-nowrap px-2.5 shrink-0 ${
+            className={`py-2 px-3 rounded-lg border-2 flex items-center gap-2 transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 ${
               activeTab === 'files'
-                ? 'border-amber-400 text-amber-300'
-                : 'border-transparent text-slate-400 hover:text-amber-400 hover:border-amber-400/60'
+                ? 'border-amber-500 dark:border-amber-400 light:border-amber-600 bg-amber-950/60 dark:bg-amber-950/60 light:bg-white text-amber-300 dark:text-amber-300 light:text-amber-900 shadow-md shadow-amber-950/30 light:shadow-sm light:ring-1 light:ring-amber-500/40 font-bold'
+                : 'border-transparent light:border-slate-300 text-slate-400 dark:text-slate-400 light:text-slate-700 light:bg-white/60 hover:text-amber-400 dark:hover:text-amber-400 light:hover:text-amber-900 hover:border-amber-500/40 dark:hover:border-amber-400/60 light:hover:border-slate-400 light:hover:bg-white'
             }`}
           >
-            <FolderOpen className="w-4 h-4" />
+            <FolderOpen className="w-4 h-4 text-amber-400 light:text-amber-700" />
             <span>Resources &amp; Files ({project.files.length})</span>
           </button>
         </div>
@@ -223,7 +231,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
                     </thead>
                     <tbody className="divide-y divide-slate-800">
                       {cs.modelComparison.map((row, idx) => (
-                        <tr key={idx} className={idx === 0 ? 'bg-cyan-950/20' : 'bg-slate-950/40'}>
+                        <tr key={idx} className={idx === 0 ? 'bg-cyan-950/20 dark:bg-cyan-950/20 light:bg-cyan-50/80' : 'bg-slate-950/40 dark:bg-slate-950/40 light:bg-slate-50'}>
                           <td className="p-3 font-bold text-slate-200 flex items-center gap-1.5">
                             {idx === 0 && <span className="w-2 h-2 rounded-full bg-emerald-400" />}
                             <span>{row.algorithm}</span>
@@ -299,7 +307,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
                 <div key={idx} className="relative flex flex-col items-center">
                   <div className="w-full p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition-colors flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <span className="w-7 h-7 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800 font-mono text-xs flex items-center justify-center font-bold">
+                      <span className="w-7 h-7 rounded-full bg-cyan-950 dark:bg-cyan-950 light:bg-cyan-100 text-cyan-400 dark:text-cyan-400 light:text-cyan-800 border border-cyan-800 dark:border-cyan-800 light:border-cyan-300 font-mono text-xs flex items-center justify-center font-bold">
                         {idx + 1}
                       </span>
                       <span className="font-semibold text-slate-200 text-sm">{step}</span>

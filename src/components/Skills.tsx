@@ -60,11 +60,11 @@ export const Skills: React.FC = () => {
             </span>
             <button
               onClick={() => setShowCoursework(!showCoursework)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold text-cyan-300 bg-cyan-950/60 border border-cyan-800/60 hover:bg-cyan-900/60 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold text-cyan-300 dark:text-cyan-300 light:text-cyan-900 bg-cyan-950/60 dark:bg-cyan-950/60 light:bg-cyan-50 border border-cyan-800/60 dark:border-cyan-800/60 light:border-cyan-400 hover:bg-cyan-900/60 dark:hover:bg-cyan-900/60 light:hover:bg-cyan-100 transition-colors cursor-pointer shadow-xs"
             >
-              <BookOpen className="w-3.5 h-3.5 text-cyan-400" />
+              <BookOpen className="w-3.5 h-3.5 text-cyan-400 light:text-cyan-700" />
               <span>{showCoursework ? 'Hide Coursework' : 'View Verified Coursework'}</span>
-              {showCoursework ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+              {showCoursework ? <ChevronUp className="w-3.5 h-3.5 light:text-cyan-700" /> : <ChevronDown className="w-3.5 h-3.5 light:text-cyan-700" />}
             </button>
           </div>
         </div>
@@ -134,7 +134,7 @@ export const Skills: React.FC = () => {
                           <span className="group-hover/item:text-cyan-300 transition-colors">{skill.name}</span>
                         </span>
                         {skill.highlight && (
-                          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-950/80 text-cyan-400 border border-cyan-800/60">
+                          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-950/80 dark:bg-cyan-950/80 light:bg-cyan-100 text-cyan-400 dark:text-cyan-400 light:text-cyan-800 border border-cyan-800/60 dark:border-cyan-800/60 light:border-cyan-300 font-medium">
                             Core
                           </span>
                         )}

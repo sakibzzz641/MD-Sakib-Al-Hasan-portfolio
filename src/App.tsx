@@ -21,7 +21,11 @@ export default function App() {
   const [isRecruiterModalOpen, setIsRecruiterModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#0b0f17] dark:bg-[#0b0f17] light:bg-[#f8fafc] text-slate-100 dark:text-slate-100 light:text-slate-900 transition-colors duration-200">
+    <div className={`min-h-screen transition-colors duration-300 ${
+      theme === 'dark'
+        ? 'bg-[#0b0f17] text-slate-100'
+        : 'bg-[#f8fafc] text-slate-900'
+    }`}>
       {/* Subtle Viewport Reading Progress Bar */}
       <ReadingProgressBar />
 

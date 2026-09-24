@@ -64,16 +64,16 @@ export const About: React.FC = () => {
               </div>
 
               {/* Verified Ostad Badge Callout */}
-              <div className="mt-4 p-4 rounded-xl bg-cyan-950/30 border border-cyan-800/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div className="mt-4 p-4 rounded-xl bg-cyan-950/30 dark:bg-cyan-950/30 light:bg-cyan-50/80 border border-cyan-800/40 dark:border-cyan-800/40 light:border-cyan-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-cyan-900/40 text-cyan-300">
-                    <Award className="w-5 h-5" />
+                  <div className="p-2 rounded-lg bg-cyan-900/40 dark:bg-cyan-900/40 light:bg-cyan-100 text-cyan-300 dark:text-cyan-300 light:text-cyan-800 border border-transparent light:border-cyan-200">
+                    <Award className="w-5 h-5 text-cyan-400 light:text-cyan-700" />
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-slate-200">
-                      Ostad Certified Data Scientist & ML Practitioner
+                    <div className="text-xs font-bold text-slate-200 dark:text-slate-200 light:text-slate-900">
+                      Ostad Certified Data Scientist &amp; ML Practitioner
                     </div>
-                    <div className="text-[11px] text-slate-400">
+                    <div className="text-[11px] text-slate-400 dark:text-slate-400 light:text-slate-600">
                       Completed Sept 2026 · Batch 56 · Assignment 100% · Quiz 97.3%
                     </div>
                   </div>
@@ -82,10 +82,10 @@ export const About: React.FC = () => {
                   href={socialLinks.ostadCertificate}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-semibold text-cyan-300 hover:text-cyan-200 bg-cyan-900/50 hover:bg-cyan-900/80 transition-colors shrink-0"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-semibold text-cyan-300 dark:text-cyan-300 light:text-cyan-900 hover:text-cyan-200 dark:hover:text-cyan-200 light:hover:text-cyan-950 bg-cyan-900/50 dark:bg-cyan-900/50 light:bg-cyan-100 hover:bg-cyan-900/80 dark:hover:bg-cyan-900/80 light:hover:bg-cyan-200 border border-transparent light:border-cyan-300 transition-colors shrink-0 shadow-xs cursor-pointer"
                 >
                   <span>Verify Credential</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <ExternalLink className="w-3.5 h-3.5 text-cyan-400 light:text-cyan-700" />
                 </a>
               </div>
             </div>
@@ -147,61 +147,61 @@ export const About: React.FC = () => {
               <div className="space-y-4">
                 {/* Location */}
                 <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-slate-900 text-slate-400 shrink-0">
+                  <div className="p-2 rounded-lg bg-slate-900 dark:bg-slate-900 light:bg-slate-100 text-slate-400 dark:text-slate-400 light:text-slate-700 shrink-0 border border-slate-800/60 dark:border-slate-800/60 light:border-slate-200">
                     <MapPin className="w-4 h-4 text-rose-400" />
                   </div>
                   <div>
-                    <div className="text-[11px] font-mono text-slate-400 uppercase">Location</div>
-                    <div className="text-sm font-semibold text-slate-200">{profileData.snapshot.location}</div>
-                    <div className="text-xs text-slate-400">Chinishpur, Narsingdi Sadar, Bangladesh</div>
+                    <div className="text-[11px] font-mono text-slate-400 dark:text-slate-400 light:text-slate-600 uppercase font-medium">Location</div>
+                    <div className="text-sm font-semibold text-slate-200 dark:text-slate-200 light:text-slate-900">{profileData.snapshot.location}</div>
+                    <div className="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600">Chinishpur, Narsingdi Sadar, Bangladesh</div>
                   </div>
                 </div>
 
                 {/* Focus */}
                 <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-slate-900 text-slate-400 shrink-0">
+                  <div className="p-2 rounded-lg bg-slate-900 dark:bg-slate-900 light:bg-slate-100 text-slate-400 dark:text-slate-400 light:text-slate-700 shrink-0 border border-slate-800/60 dark:border-slate-800/60 light:border-slate-200">
                     <BrainCircuit className="w-4 h-4 text-cyan-400" />
                   </div>
                   <div>
-                    <div className="text-[11px] font-mono text-slate-400 uppercase">Domain Focus</div>
-                    <div className="text-sm font-semibold text-slate-200">{profileData.snapshot.focus}</div>
-                    <div className="text-xs text-slate-400">EDA, Feature Engineering, Machine Learning, Modeling</div>
+                    <div className="text-[11px] font-mono text-slate-400 dark:text-slate-400 light:text-slate-600 uppercase font-medium">Domain Focus</div>
+                    <div className="text-sm font-semibold text-slate-200 dark:text-slate-200 light:text-slate-900">{profileData.snapshot.focus}</div>
+                    <div className="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600">EDA, Feature Engineering, Machine Learning, Modeling</div>
                   </div>
                 </div>
 
                 {/* Academic Background */}
                 <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-slate-900 text-slate-400 shrink-0">
+                  <div className="p-2 rounded-lg bg-slate-900 dark:bg-slate-900 light:bg-slate-100 text-slate-400 dark:text-slate-400 light:text-slate-700 shrink-0 border border-slate-800/60 dark:border-slate-800/60 light:border-slate-200">
                     <GraduationCap className="w-4 h-4 text-sky-400" />
                   </div>
                   <div>
-                    <div className="text-[11px] font-mono text-slate-400 uppercase">Academic Degree</div>
-                    <div className="text-sm font-semibold text-slate-200">{profileData.snapshot.academicBackground}</div>
-                    <div className="text-xs text-slate-400">Govt. Shaheed Asad College, Shibpur</div>
+                    <div className="text-[11px] font-mono text-slate-400 dark:text-slate-400 light:text-slate-600 uppercase font-medium">Academic Degree</div>
+                    <div className="text-sm font-semibold text-slate-200 dark:text-slate-200 light:text-slate-900">{profileData.snapshot.academicBackground}</div>
+                    <div className="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600">Govt. Shaheed Asad College, Shibpur</div>
                   </div>
                 </div>
 
                 {/* Current Status */}
                 <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-slate-900 text-slate-400 shrink-0">
+                  <div className="p-2 rounded-lg bg-slate-900 dark:bg-slate-900 light:bg-slate-100 text-slate-400 dark:text-slate-400 light:text-slate-700 shrink-0 border border-slate-800/60 dark:border-slate-800/60 light:border-slate-200">
                     <Clock className="w-4 h-4 text-amber-400" />
                   </div>
                   <div>
-                    <div className="text-[11px] font-mono text-slate-400 uppercase">Academic Status</div>
-                    <div className="text-sm font-semibold text-amber-300">{profileData.snapshot.currentStatus}</div>
-                    <div className="text-xs text-slate-400">Session 2021–2022 · Expected Completion: 2027</div>
+                    <div className="text-[11px] font-mono text-slate-400 dark:text-slate-400 light:text-slate-600 uppercase font-medium">Academic Status</div>
+                    <div className="text-sm font-semibold text-amber-300 dark:text-amber-300 light:text-amber-800">{profileData.snapshot.currentStatus}</div>
+                    <div className="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600">Session 2021–2022 · Expected Completion: 2027</div>
                   </div>
                 </div>
 
                 {/* Career Target */}
-                <div className="flex items-start gap-3 pt-2 border-t border-slate-800/80">
-                  <div className="p-2 rounded-lg bg-cyan-950/60 text-cyan-400 shrink-0 border border-cyan-800/40">
-                    <Target className="w-4 h-4 text-cyan-400" />
+                <div className="flex items-start gap-3 pt-2 border-t border-slate-800/80 dark:border-slate-800/80 light:border-slate-200">
+                  <div className="p-2 rounded-lg bg-cyan-950/60 dark:bg-cyan-950/60 light:bg-cyan-100 text-cyan-400 dark:text-cyan-400 light:text-cyan-800 shrink-0 border border-cyan-800/40 dark:border-cyan-800/40 light:border-cyan-300">
+                    <Target className="w-4 h-4 text-cyan-400 light:text-cyan-700" />
                   </div>
                   <div>
-                    <div className="text-[11px] font-mono text-cyan-400 uppercase font-semibold">Career Target</div>
-                    <div className="text-sm font-bold text-slate-100">{profileData.snapshot.targetRole}</div>
-                    <div className="text-xs text-slate-400">Ready for full-time junior roles &amp; analyst teams</div>
+                    <div className="text-[11px] font-mono text-cyan-400 dark:text-cyan-400 light:text-cyan-800 uppercase font-semibold">Career Target</div>
+                    <div className="text-sm font-bold text-slate-100 dark:text-slate-100 light:text-slate-900">{profileData.snapshot.targetRole}</div>
+                    <div className="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600">Ready for full-time junior roles &amp; analyst teams</div>
                   </div>
                 </div>
               </div>

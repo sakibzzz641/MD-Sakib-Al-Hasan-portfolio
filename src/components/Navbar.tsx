@@ -37,65 +37,65 @@ export const Navbar: React.FC<NavbarProps> = ({
       label: 'About',
       href: '#about',
       id: 'about',
-      hoverClass: 'hover:text-cyan-400 dark:hover:text-cyan-300 light:hover:text-cyan-600 hover:bg-cyan-500/10 dark:hover:bg-cyan-500/15 light:hover:bg-cyan-50 hover:border-cyan-500/40 hover:shadow-[0_0_12px_rgba(6,182,212,0.25)]',
-      activeClass: 'text-cyan-400 dark:text-cyan-300 light:text-cyan-600 bg-cyan-500/15 border-cyan-500/50 shadow-[0_0_10px_rgba(6,182,212,0.2)] font-semibold',
-      dotClass: 'bg-cyan-400'
+      hoverClass: 'hover:text-cyan-400 dark:hover:text-cyan-300 light:hover:text-cyan-800 hover:bg-cyan-500/10 dark:hover:bg-cyan-500/15 light:hover:bg-cyan-50/80 hover:border-cyan-500/40 dark:hover:border-cyan-500/40 light:hover:border-cyan-400 hover:shadow-[0_0_12px_rgba(6,182,212,0.25)]',
+      activeClass: 'text-cyan-400 dark:text-cyan-300 light:text-cyan-900 bg-cyan-500/15 dark:bg-cyan-500/15 light:bg-cyan-100 border-cyan-500/50 dark:border-cyan-500/50 light:border-cyan-600 shadow-[0_0_10px_rgba(6,182,212,0.2)] light:shadow-sm font-bold',
+      dotClass: 'bg-cyan-400 light:bg-cyan-600'
     },
     {
       label: 'Skills',
       href: '#skills',
       id: 'skills',
-      hoverClass: 'hover:text-emerald-400 dark:hover:text-emerald-300 light:hover:text-emerald-600 hover:bg-emerald-500/10 dark:hover:bg-emerald-500/15 light:hover:bg-emerald-50 hover:border-emerald-500/40 hover:shadow-[0_0_12px_rgba(16,185,129,0.25)]',
-      activeClass: 'text-emerald-400 dark:text-emerald-300 light:text-emerald-600 bg-emerald-500/15 border-emerald-500/50 shadow-[0_0_10px_rgba(16,185,129,0.2)] font-semibold',
-      dotClass: 'bg-emerald-400'
+      hoverClass: 'hover:text-emerald-400 dark:hover:text-emerald-300 light:hover:text-emerald-800 hover:bg-emerald-500/10 dark:hover:bg-emerald-500/15 light:hover:bg-emerald-50/80 hover:border-emerald-500/40 dark:hover:border-emerald-500/40 light:hover:border-emerald-400 hover:shadow-[0_0_12px_rgba(16,185,129,0.25)]',
+      activeClass: 'text-emerald-400 dark:text-emerald-300 light:text-emerald-900 bg-emerald-500/15 dark:bg-emerald-500/15 light:bg-emerald-100 border-emerald-500/50 dark:border-emerald-500/50 light:border-emerald-600 shadow-[0_0_10px_rgba(16,185,129,0.2)] light:shadow-sm font-bold',
+      dotClass: 'bg-emerald-400 light:bg-emerald-600'
     },
     {
       label: 'Projects',
       href: '#projects',
       id: 'projects',
-      hoverClass: 'hover:text-purple-400 dark:hover:text-purple-300 light:hover:text-purple-600 hover:bg-purple-500/10 dark:hover:bg-purple-500/15 light:hover:bg-purple-50 hover:border-purple-500/40 hover:shadow-[0_0_12px_rgba(168,85,247,0.25)]',
-      activeClass: 'text-purple-400 dark:text-purple-300 light:text-purple-600 bg-purple-500/15 border-purple-500/50 shadow-[0_0_10px_rgba(168,85,247,0.2)] font-semibold',
-      dotClass: 'bg-purple-400'
+      hoverClass: 'hover:text-purple-400 dark:hover:text-purple-300 light:hover:text-purple-800 hover:bg-purple-500/10 dark:hover:bg-purple-500/15 light:hover:bg-purple-50/80 hover:border-purple-500/40 dark:hover:border-purple-500/40 light:hover:border-purple-400 hover:shadow-[0_0_12px_rgba(168,85,247,0.25)]',
+      activeClass: 'text-purple-400 dark:text-purple-300 light:text-purple-900 bg-purple-500/15 dark:bg-purple-500/15 light:bg-purple-100 border-purple-500/50 dark:border-purple-500/50 light:border-purple-600 shadow-[0_0_10px_rgba(168,85,247,0.2)] light:shadow-sm font-bold',
+      dotClass: 'bg-purple-400 light:bg-purple-600'
     },
     {
       label: 'Workflow',
       href: '#workflow',
       id: 'workflow',
-      hoverClass: 'hover:text-amber-400 dark:hover:text-amber-300 light:hover:text-amber-600 hover:bg-amber-500/10 dark:hover:bg-amber-500/15 light:hover:bg-amber-50 hover:border-amber-500/40 hover:shadow-[0_0_12px_rgba(245,158,11,0.25)]',
-      activeClass: 'text-amber-400 dark:text-amber-300 light:text-amber-600 bg-amber-500/15 border-amber-500/50 shadow-[0_0_10px_rgba(245,158,11,0.2)] font-semibold',
-      dotClass: 'bg-amber-400'
+      hoverClass: 'hover:text-amber-400 dark:hover:text-amber-300 light:hover:text-amber-800 hover:bg-amber-500/10 dark:hover:bg-amber-500/15 light:hover:bg-amber-50/80 hover:border-amber-500/40 dark:hover:border-amber-500/40 light:hover:border-amber-400 hover:shadow-[0_0_12px_rgba(245,158,11,0.25)]',
+      activeClass: 'text-amber-400 dark:text-amber-300 light:text-amber-900 bg-amber-500/15 dark:bg-amber-500/15 light:bg-amber-100 border-amber-500/50 dark:border-amber-500/50 light:border-amber-600 shadow-[0_0_10px_rgba(245,158,11,0.2)] light:shadow-sm font-bold',
+      dotClass: 'bg-amber-400 light:bg-amber-600'
     },
     {
       label: 'Experience',
       href: '#experience',
       id: 'experience',
-      hoverClass: 'hover:text-sky-400 dark:hover:text-sky-300 light:hover:text-sky-600 hover:bg-sky-500/10 dark:hover:bg-sky-500/15 light:hover:bg-sky-50 hover:border-sky-500/40 hover:shadow-[0_0_12px_rgba(14,165,233,0.25)]',
-      activeClass: 'text-sky-400 dark:text-sky-300 light:text-sky-600 bg-sky-500/15 border-sky-500/50 shadow-[0_0_10px_rgba(14,165,233,0.2)] font-semibold',
-      dotClass: 'bg-sky-400'
+      hoverClass: 'hover:text-sky-400 dark:hover:text-sky-300 light:hover:text-sky-800 hover:bg-sky-500/10 dark:hover:bg-sky-500/15 light:hover:bg-sky-50/80 hover:border-sky-500/40 dark:hover:border-sky-500/40 light:hover:border-sky-400 hover:shadow-[0_0_12px_rgba(14,165,233,0.25)]',
+      activeClass: 'text-sky-400 dark:text-sky-300 light:text-sky-900 bg-sky-500/15 dark:bg-sky-500/15 light:bg-sky-100 border-sky-500/50 dark:border-sky-500/50 light:border-sky-600 shadow-[0_0_10px_rgba(14,165,233,0.2)] light:shadow-sm font-bold',
+      dotClass: 'bg-sky-400 light:bg-sky-600'
     },
     {
       label: 'Education',
       href: '#education',
       id: 'education',
-      hoverClass: 'hover:text-teal-400 dark:hover:text-teal-300 light:hover:text-teal-600 hover:bg-teal-500/10 dark:hover:bg-teal-500/15 light:hover:bg-teal-50 hover:border-teal-500/40 hover:shadow-[0_0_12px_rgba(20,184,166,0.25)]',
-      activeClass: 'text-teal-400 dark:text-teal-300 light:text-teal-600 bg-teal-500/15 border-teal-500/50 shadow-[0_0_10px_rgba(20,184,166,0.2)] font-semibold',
-      dotClass: 'bg-teal-400'
+      hoverClass: 'hover:text-teal-400 dark:hover:text-teal-300 light:hover:text-teal-800 hover:bg-teal-500/10 dark:hover:bg-teal-500/15 light:hover:bg-teal-50/80 hover:border-teal-500/40 dark:hover:border-teal-500/40 light:hover:border-teal-400 hover:shadow-[0_0_12px_rgba(20,184,166,0.25)]',
+      activeClass: 'text-teal-400 dark:text-teal-300 light:text-teal-900 bg-teal-500/15 dark:bg-teal-500/15 light:bg-teal-100 border-teal-500/50 dark:border-teal-500/50 light:border-teal-600 shadow-[0_0_10px_rgba(20,184,166,0.2)] light:shadow-sm font-bold',
+      dotClass: 'bg-teal-400 light:bg-teal-600'
     },
     {
       label: 'Certifications',
       href: '#certifications',
       id: 'certifications',
-      hoverClass: 'hover:text-rose-400 dark:hover:text-rose-300 light:hover:text-rose-600 hover:bg-rose-500/10 dark:hover:bg-rose-500/15 light:hover:bg-rose-50 hover:border-rose-500/40 hover:shadow-[0_0_12px_rgba(244,63,94,0.25)]',
-      activeClass: 'text-rose-400 dark:text-rose-300 light:text-rose-600 bg-rose-500/15 border-rose-500/50 shadow-[0_0_10px_rgba(244,63,94,0.2)] font-semibold',
-      dotClass: 'bg-rose-400'
+      hoverClass: 'hover:text-rose-400 dark:hover:text-rose-300 light:hover:text-rose-800 hover:bg-rose-500/10 dark:hover:bg-rose-500/15 light:hover:bg-rose-50/80 hover:border-rose-500/40 dark:hover:border-rose-500/40 light:hover:border-rose-400 hover:shadow-[0_0_12px_rgba(244,63,94,0.25)]',
+      activeClass: 'text-rose-400 dark:text-rose-300 light:text-rose-900 bg-rose-500/15 dark:bg-rose-500/15 light:bg-rose-100 border-rose-500/50 dark:border-rose-500/50 light:border-rose-600 shadow-[0_0_10px_rgba(244,63,94,0.2)] light:shadow-sm font-bold',
+      dotClass: 'bg-rose-400 light:bg-rose-600'
     },
     {
       label: 'Contact',
       href: '#contact',
       id: 'contact',
-      hoverClass: 'hover:text-fuchsia-400 dark:hover:text-fuchsia-300 light:hover:text-fuchsia-600 hover:bg-fuchsia-500/10 dark:hover:bg-fuchsia-500/15 light:hover:bg-fuchsia-50 hover:border-fuchsia-500/40 hover:shadow-[0_0_12px_rgba(217,70,239,0.25)]',
-      activeClass: 'text-fuchsia-400 dark:text-fuchsia-300 light:text-fuchsia-600 bg-fuchsia-500/15 border-fuchsia-500/50 shadow-[0_0_10px_rgba(217,70,239,0.2)] font-semibold',
-      dotClass: 'bg-fuchsia-400'
+      hoverClass: 'hover:text-fuchsia-400 dark:hover:text-fuchsia-300 light:hover:text-fuchsia-800 hover:bg-fuchsia-500/10 dark:hover:bg-fuchsia-500/15 light:hover:bg-fuchsia-50/80 hover:border-fuchsia-500/40 dark:hover:border-fuchsia-500/40 light:hover:border-fuchsia-400 hover:shadow-[0_0_12px_rgba(217,70,239,0.25)]',
+      activeClass: 'text-fuchsia-400 dark:text-fuchsia-300 light:text-fuchsia-900 bg-fuchsia-500/15 dark:bg-fuchsia-500/15 light:bg-fuchsia-100 border-fuchsia-500/50 dark:border-fuchsia-500/50 light:border-fuchsia-600 shadow-[0_0_10px_rgba(217,70,239,0.2)] light:shadow-sm font-bold',
+      dotClass: 'bg-fuchsia-400 light:bg-fuchsia-600'
     }
   ];
 
@@ -322,11 +322,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                 align="right"
               >
                 <button
+                  type="button"
                   onClick={onToggleTheme}
                   className={`w-8 h-8 flex items-center justify-center rounded-lg border transition-all duration-200 active:scale-95 cursor-pointer ${
                     theme === 'dark'
                       ? 'bg-amber-500/15 hover:bg-amber-500/30 text-amber-400 border-amber-500/40 hover:border-amber-400 shadow-sm shadow-amber-500/20'
-                      : 'bg-indigo-500/15 hover:bg-indigo-500/30 text-indigo-500 border-indigo-500/40 hover:border-indigo-400 shadow-sm shadow-indigo-500/20'
+                      : 'bg-indigo-500/15 hover:bg-indigo-500/30 text-indigo-600 border-indigo-500/40 hover:border-indigo-400 shadow-sm shadow-indigo-500/20'
                   }`}
                   aria-label={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
                 >
@@ -345,8 +346,13 @@ export const Navbar: React.FC<NavbarProps> = ({
               align="right"
             >
               <button
+                type="button"
                 onClick={onToggleTheme}
-                className="p-2 text-slate-400 hover:text-amber-400 transition-colors rounded-md cursor-pointer"
+                className={`p-2 rounded-lg border transition-all cursor-pointer ${
+                  theme === 'dark'
+                    ? 'bg-amber-500/15 text-amber-400 border-amber-500/30 hover:bg-amber-500/25'
+                    : 'bg-indigo-500/15 text-indigo-600 border-indigo-500/30 hover:bg-indigo-500/25'
+                }`}
                 aria-label="Toggle Theme"
               >
                 {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
