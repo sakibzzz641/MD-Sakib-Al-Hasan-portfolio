@@ -53,7 +53,7 @@ export interface Project {
   id: string;
   title: string;
   slug: string;
-  category: 'Unsupervised Machine Learning' | 'Classification' | 'Data Analysis' | 'EDA' | 'Data Analysis / EDA' | 'Machine Learning';
+  category: 'Unsupervised Machine Learning' | 'Classification' | 'Regression' | 'Data Analysis' | 'EDA' | 'Data Analysis / EDA' | 'Machine Learning';
   featured: boolean;
   description: string;
   shortDescription: string;
@@ -144,4 +144,56 @@ export interface WorkflowStep {
   description: string;
   actions: string[];
   tools: string[];
+}
+
+export interface ProjectMilestone {
+  id: string;
+  milestoneNumber: number;
+  phaseId: string;
+  phaseName: string;
+  title: string;
+  period: string;
+  status: 'Completed' | 'In Progress' | 'Planned';
+  summary: string;
+  deliverables: string[];
+  keyMetric?: {
+    label: string;
+    value: string;
+    context: string;
+  };
+  technicalChallenge: string;
+  engineeringSolution: string;
+  toolsUsed: string[];
+  artifactType?: 'notebook' | 'dataset' | 'visualization' | 'model' | 'report';
+  artifactName?: string;
+  codeSnippet?: {
+    language: string;
+    code: string;
+  };
+}
+
+export interface TimelinePhase {
+  id: string;
+  phaseNumber: number;
+  name: string;
+  timeframe: string;
+  status: 'Completed' | 'In Progress' | 'Planned';
+  description: string;
+  milestonesCount: number;
+  coreFocus: string;
+}
+
+export interface ProjectTimeline {
+  projectId: string;
+  projectSlug: string;
+  projectTitle: string;
+  category: string;
+  duration: string;
+  totalPhases: number;
+  totalMilestones: number;
+  summary: string;
+  phases: TimelinePhase[];
+  milestones: ProjectMilestone[];
+  caseStudyId?: string;
+  githubUrl?: string;
 }

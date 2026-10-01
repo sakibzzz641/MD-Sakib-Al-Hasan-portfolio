@@ -31,12 +31,14 @@ export const Projects: React.FC = () => {
   // Suggested popular tags for quick 1-click filtering
   const popularTags = [
     'Python',
-    'SQL',
     'Machine Learning',
-    'Pandas',
-    'K-Means',
+    'Regression',
+    'XGBoost',
+    'SHAP',
     'Classification',
-    'EDA',
+    'SMOTE',
+    'K-Means',
+    'Pandas',
     'Scikit-learn'
   ];
 
@@ -70,6 +72,9 @@ export const Projects: React.FC = () => {
   const getCoverImage = (project: Project) => {
     if (project.images && project.images.length > 0) {
       return project.images[0].src;
+    }
+    if (project.category.includes('Regression')) {
+      return '/images/projects/insurance-regression/07_predicted_vs_actual.png';
     }
     if (project.category.includes('Classification')) {
       return '/images/projects/placeholders/classification-placeholder.svg';
@@ -229,9 +234,11 @@ export const Projects: React.FC = () => {
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mt-3" />
           </div>
-          <p className="mt-4 md:mt-0 text-sm text-slate-400 max-w-md">
-            Production-grade machine learning pipelines, exploratory data analyses, and statistical modeling backed by clean version-controlled code.
-          </p>
+          <div className="mt-4 md:mt-0 flex flex-col items-start md:items-end gap-2 max-w-md">
+            <p className="text-sm text-slate-400">
+              Production-grade machine learning pipelines, exploratory data analyses, and statistical modeling backed by clean version-controlled code.
+            </p>
+          </div>
         </div>
 
         {/* FEATURED PROJECT HERO SHOWCASE */}
@@ -319,6 +326,7 @@ export const Projects: React.FC = () => {
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
 
+
                   {featuredProject.githubUrl && (
                     <a
                       href={featuredProject.githubUrl}
@@ -373,6 +381,11 @@ export const Projects: React.FC = () => {
                     active: 'bg-purple-950/80 dark:bg-purple-950/80 light:bg-purple-50 text-purple-300 dark:text-purple-300 light:text-purple-900 border-purple-500 dark:border-purple-500 light:border-purple-600 shadow-[0_0_12px_rgba(168,85,247,0.3)] light:shadow-sm light:ring-1 light:ring-purple-500/40',
                     hover: 'hover:text-purple-300 dark:hover:text-purple-300 light:hover:text-purple-900 hover:border-purple-500/60 dark:hover:border-purple-500/60 light:hover:border-purple-500 hover:bg-purple-950/40 dark:hover:bg-purple-950/40 light:hover:bg-purple-50/70',
                     dot: 'bg-purple-400 light:bg-purple-600'
+                  },
+                  'Regression': {
+                    active: 'bg-teal-950/80 dark:bg-teal-950/80 light:bg-teal-50 text-teal-300 dark:text-teal-300 light:text-teal-900 border-teal-500 dark:border-teal-500 light:border-teal-600 shadow-[0_0_12px_rgba(20,184,166,0.3)] light:shadow-sm light:ring-1 light:ring-teal-500/40',
+                    hover: 'hover:text-teal-300 dark:hover:text-teal-300 light:hover:text-teal-900 hover:border-teal-500/60 dark:hover:border-teal-500/60 light:hover:border-teal-500 hover:bg-teal-950/40 dark:hover:bg-teal-950/40 light:hover:bg-teal-50/70',
+                    dot: 'bg-teal-400 light:bg-teal-600'
                   },
                   'Classification': {
                     active: 'bg-sky-950/80 dark:bg-sky-950/80 light:bg-sky-50 text-sky-300 dark:text-sky-300 light:text-sky-900 border-sky-500 dark:border-sky-500 light:border-sky-600 shadow-[0_0_12px_rgba(14,165,233,0.3)] light:shadow-sm light:ring-1 light:ring-sky-500/40',
@@ -642,11 +655,11 @@ export const Projects: React.FC = () => {
                 type="button"
                 onClick={() => {
                   setSelectedCategory('All');
-                  setSearchQuery('SQL');
+                  setSearchQuery('XGBoost');
                 }}
                 className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-cyan-300 hover:border-cyan-500 font-mono text-[11px] cursor-pointer"
               >
-                #SQL
+                #XGBoost
               </button>
               <button
                 type="button"

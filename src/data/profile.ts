@@ -6,8 +6,8 @@ export const profileData = {
   photoGithubRaw: "https://raw.githubusercontent.com/sakibzzz641/MD-Sakib-Al-Hasan-portfolio-/main/asset/Professional%20photo.png",
   photoRaw: "asset/Professional photo.png",
   careerFocus: "Entry-Level Data Scientist / Data Analyst",
-  location: "Chinishpur, Narsingdi Sadar, Narsingdi, Bangladesh",
-  shortLocation: "Narsingdi, Bangladesh",
+  location: "Narsingdi, Dhaka, Bangladesh",
+  shortLocation: "Narsingdi, Dhaka, Bangladesh",
   email: "sakibzzz641@gmail.com",
   phone: "+880 1909-915855",
   displayPhone: "+880 1909-915855",
@@ -22,7 +22,7 @@ export const profileData = {
     "My academic background in Mathematics supports my quantitative reasoning, analytical thinking, and statistical foundation, enabling me to rigorously explore patterns, validate hypotheses, and interpret complex data structures."
   ],
   snapshot: {
-    location: "Narsingdi, Bangladesh",
+    location: "Narsingdi, Dhaka, Bangladesh",
     focus: "Data Science & Data Analytics",
     academicBackground: "B.Sc. (Hons) Mathematics",
     currentStatus: "4th Year — Running",
@@ -51,11 +51,11 @@ export const profileData = {
     }
   ],
   cv: {
-    downloadPath: "/documents/Sakib_Al_Hasan_Data_Science.pdf",
-    fileName: "Sakib_Al_Hasan_Data_Science.pdf",
-    githubUrl: "https://github.com/sakibzzz641/MD-Sakib-Al-Hasan-portfolio-/blob/main/asset/Sakib_Al_Hasan_Data_Science.pdf",
-    rawGithubUrl: "https://raw.githubusercontent.com/sakibzzz641/MD-Sakib-Al-Hasan-portfolio-/main/asset/Sakib_Al_Hasan_Data_Science.pdf",
-    lastUpdated: "September 2026",
+    downloadPath: "/asset/Sakib_Al_Hasan_Data.pdf",
+    fileName: "Sakib_Al_Hasan_Data.pdf",
+    githubUrl: "https://github.com/sakibzzz641/MD-Sakib-Al-Hasan-portfolio-/blob/main/asset/Sakib_Al_Hasan_Data.pdf",
+    rawGithubUrl: "https://raw.githubusercontent.com/sakibzzz641/MD-Sakib-Al-Hasan-portfolio-/main/asset/Sakib_Al_Hasan_Data.pdf",
+    lastUpdated: "October 2026",
     available: true
   }
 };

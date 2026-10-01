@@ -17,6 +17,21 @@ import { courseworkData } from '../data/coursework';
 
 export const Skills: React.FC = () => {
   const [showCoursework, setShowCoursework] = useState(false);
+  const [selectedDomain, setSelectedDomain] = useState<string>('All');
+
+  const domainTabs = [
+    'All',
+    'Programming & Data',
+    'Machine Learning',
+    'Data Analysis & Statistics',
+    'Data Visualization',
+    'Tools & Ecosystem',
+    'Mathematics Foundation'
+  ];
+
+  const filteredCategories = selectedDomain === 'All'
+    ? skillCategoriesData
+    : skillCategoriesData.filter(cat => cat.title.toLowerCase().includes(selectedDomain.toLowerCase()));
 
   const getCategoryIcon = (iconName: string) => {
     switch (iconName) {
@@ -48,7 +63,7 @@ export const Skills: React.FC = () => {
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
               Core Competencies
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight text-3d-section">
               Technical Skills
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mt-3" />
@@ -60,7 +75,7 @@ export const Skills: React.FC = () => {
             </span>
             <button
               onClick={() => setShowCoursework(!showCoursework)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold text-cyan-300 dark:text-cyan-300 light:text-cyan-900 bg-cyan-950/60 dark:bg-cyan-950/60 light:bg-cyan-50 border border-cyan-800/60 dark:border-cyan-800/60 light:border-cyan-400 hover:bg-cyan-900/60 dark:hover:bg-cyan-900/60 light:hover:bg-cyan-100 transition-colors cursor-pointer shadow-xs"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold text-cyan-300 dark:text-cyan-300 light:text-cyan-900 bg-cyan-950/70 dark:bg-cyan-950/70 light:bg-white border-2 border-cyan-500/60 dark:border-cyan-500/60 light:border-cyan-600 transition-colors cursor-pointer tab-btn-3d tab-3d-cyan"
             >
               <BookOpen className="w-3.5 h-3.5 text-cyan-400 light:text-cyan-700" />
               <span>{showCoursework ? 'Hide Coursework' : 'View Verified Coursework'}</span>
@@ -100,9 +115,36 @@ export const Skills: React.FC = () => {
           </div>
         )}
 
-        {/* Skills Grid by Category (No fake percentages) */}
+        {/* Interactive 3D Domain Category Tabs */}
+        <div className="flex items-center gap-1.5 overflow-x-auto tab-track-3d p-1.5 rounded-xl text-xs font-mono mb-8 min-h-[48px]" role="tablist" aria-label="Skills Domain Filter">
+          {domainTabs.map((cat) => {
+            const isSelected = selectedDomain === cat;
+            return (
+              <button
+                key={cat}
+                role="tab"
+                aria-selected={isSelected}
+                onClick={() => setSelectedDomain(cat)}
+                className={`px-3.5 py-2 rounded-lg border-2 whitespace-nowrap cursor-pointer flex items-center gap-1.5 shrink-0 tab-btn-3d tab-3d-cyan ${
+                  isSelected
+                    ? 'bg-cyan-950/90 dark:bg-cyan-950/90 light:bg-white text-cyan-300 dark:text-cyan-300 light:text-cyan-900 border-cyan-500 dark:border-cyan-500 light:border-cyan-600 font-bold'
+                    : 'bg-[#0e1626]/70 dark:bg-[#0e1626]/70 light:bg-white text-slate-400 dark:text-slate-400 light:text-slate-700 border-slate-800 dark:border-slate-800 light:border-slate-300 hover:text-cyan-300 dark:hover:text-cyan-300 light:hover:text-cyan-900 hover:border-cyan-500/50'
+                }`}
+              >
+                <span
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
+                    isSelected ? 'bg-cyan-400 light:bg-cyan-600 scale-125' : 'bg-slate-600 dark:bg-slate-600 light:bg-slate-400'
+                  }`}
+                />
+                <span>{cat}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Skills Grid by Category */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategoriesData.map((category) => (
+          {filteredCategories.map((category) => (
             <div
               key={category.title}
               className="rounded-2xl bg-[#0e1626]/80 border border-[#1f2d47] p-6 shadow-lg hover:border-slate-600 transition-all flex flex-col justify-between"

@@ -252,6 +252,16 @@ html.light {
     color: #0f172a !important;
   }
 
+  /* Retain transparent text fill for gradient-clipped spans inside headings */
+  h1 span.bg-clip-text,
+  h2 span.bg-clip-text,
+  h3 span.bg-clip-text,
+  .hero-gradient-text,
+  .text-transparent {
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+
   /* Primary text (titles, names, prominent labels) */
   .text-slate-100,
   .text-slate-200 {
@@ -847,4 +857,272 @@ html.light {
   footer a:hover {
     color: #0284c7 !important;
   }
+}
+
+/* ==========================================================================
+   17. 3D TYPOGRAPHY & 3D TAB EFFECT SYSTEM
+   Tactile mechanical depth, multi-layered isometric shadows, keycap bevels
+   and physical click response for dark and light modes.
+   ========================================================================== */
+
+/* 3D Main Hero Headline */
+.text-3d-hero {
+  text-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.16),
+    0 2px 0 #090d16,
+    0 3px 0 #05080e,
+    0 4px 6px rgba(0, 0, 0, 0.7),
+    0 10px 22px rgba(6, 182, 212, 0.2);
+  letter-spacing: -0.025em;
+}
+
+html.light .text-3d-hero {
+  text-shadow:
+    0 1px 0 #ffffff,
+    0 2px 0 #cbd5e1,
+    0 3px 1px #64748b,
+    0 6px 14px rgba(15, 23, 42, 0.16);
+  letter-spacing: -0.025em;
+}
+
+/* 3D Section Headers */
+.text-3d-section {
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.12),
+    0 2px 0 #0b0f17,
+    0 3px 0 #05080e,
+    0 4px 8px rgba(0, 0, 0, 0.6);
+  letter-spacing: -0.02em;
+}
+
+html.light .text-3d-section {
+  text-shadow:
+    0 1px 0 #ffffff,
+    0 2px 0 #cbd5e1,
+    0 3px 1px #94a3b8,
+    0 4px 8px rgba(15, 23, 42, 0.1);
+  letter-spacing: -0.02em;
+}
+
+/* 3D Stat / Metric Values */
+.text-3d-stat {
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.2),
+    0 2px 0 #070b12,
+    0 3px 0 #020509,
+    0 5px 10px rgba(0, 0, 0, 0.7);
+}
+
+html.light .text-3d-stat {
+  text-shadow:
+    0 1px 0 #ffffff,
+    0 2px 0 #cbd5e1,
+    0 3px 1px #94a3b8,
+    0 4px 8px rgba(15, 23, 42, 0.12);
+}
+
+/* 3D Hero Title Gradient with High-Contrast Light & Dark Mode Differentiation */
+.hero-gradient-text {
+  background-image: linear-gradient(135deg, #22d3ee 0%, #38bdf8 45%, #60a5fa 75%, #818cf8 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  display: inline-block;
+  filter: drop-shadow(0 2px 0 #020617)
+          drop-shadow(0 4px 14px rgba(6, 182, 212, 0.45));
+}
+
+html.light .hero-gradient-text {
+  background-image: linear-gradient(135deg, #0284c7 0%, #0369a1 25%, #1d4ed8 65%, #4338ca 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  display: inline-block;
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.95))
+          drop-shadow(0 2.5px 0 #93c5fd)
+          drop-shadow(0 4px 12px rgba(29, 78, 216, 0.35)) !important;
+}
+
+/* 3D Gradient Glow for bg-clip-text elements */
+.filter-3d-gradient {
+  filter: drop-shadow(0 2px 0 #020617)
+          drop-shadow(0 4px 14px rgba(6, 182, 212, 0.45));
+}
+
+html.light .filter-3d-gradient {
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.95))
+          drop-shadow(0 2.5px 0 #93c5fd)
+          drop-shadow(0 4px 12px rgba(29, 78, 216, 0.35)) !important;
+}
+
+/* 3D Tab Dock / Track */
+.tab-track-3d {
+  background: rgba(12, 18, 30, 0.85);
+  box-shadow: 
+    inset 0 2px 5px rgba(0, 0, 0, 0.65),
+    inset 0 1px 1px rgba(0, 0, 0, 0.9),
+    0 1px 0 rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(31, 45, 71, 0.9);
+}
+
+html.light .tab-track-3d {
+  background: #f1f5f9;
+  box-shadow:
+    inset 0 2px 4px rgba(15, 23, 42, 0.08),
+    inset 0 1px 1px rgba(15, 23, 42, 0.05),
+    0 1px 0 #ffffff;
+  border: 1px solid #cbd5e1;
+}
+
+/* 3D Tab Button Base */
+.tab-btn-3d {
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+/* Inactive Tab: subtle resting elevation, hover lift */
+.tab-btn-3d:not([aria-selected="true"]):hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.4),
+    0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+html.light .tab-btn-3d:not([aria-selected="true"]):hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 4px 10px rgba(15, 23, 42, 0.09),
+    0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.tab-btn-3d:not([aria-selected="true"]):active {
+  transform: translateY(0);
+}
+
+/* Active 3D Tab Keycap (Physically Raised with Bottom Extrusion) */
+.tab-btn-3d[aria-selected="true"] {
+  transform: translateY(-2px);
+  border-bottom-width: 3.5px !important;
+}
+
+.tab-btn-3d[aria-selected="true"]:active {
+  transform: translateY(1px);
+  border-bottom-width: 1.5px !important;
+}
+
+/* Cyan 3D Tab Active State */
+.tab-3d-cyan[aria-selected="true"] {
+  border-top-color: rgba(103, 232, 249, 0.6) !important;
+  border-bottom-color: #0891b2 !important;
+  box-shadow:
+    0 6px 16px -2px rgba(6, 182, 212, 0.38),
+    0 2px 4px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+html.light .tab-3d-cyan[aria-selected="true"] {
+  border-top-color: #bae6fd !important;
+  border-bottom-color: #0369a1 !important;
+  box-shadow:
+    0 5px 14px -2px rgba(2, 132, 199, 0.28),
+    0 2px 4px rgba(15, 23, 42, 0.07),
+    inset 0 1px 0 #ffffff !important;
+}
+
+/* Purple 3D Tab Active State */
+.tab-3d-purple[aria-selected="true"] {
+  border-top-color: rgba(216, 180, 254, 0.6) !important;
+  border-bottom-color: #9333ea !important;
+  box-shadow:
+    0 6px 16px -2px rgba(168, 85, 247, 0.38),
+    0 2px 4px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+html.light .tab-3d-purple[aria-selected="true"] {
+  border-top-color: #e9d5ff !important;
+  border-bottom-color: #7e22ce !important;
+  box-shadow:
+    0 5px 14px -2px rgba(147, 51, 234, 0.28),
+    0 2px 4px rgba(15, 23, 42, 0.07),
+    inset 0 1px 0 #ffffff !important;
+}
+
+/* Sky 3D Tab Active State */
+.tab-3d-sky[aria-selected="true"] {
+  border-top-color: rgba(186, 230, 253, 0.6) !important;
+  border-bottom-color: #0284c7 !important;
+  box-shadow:
+    0 6px 16px -2px rgba(14, 165, 233, 0.38),
+    0 2px 4px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+html.light .tab-3d-sky[aria-selected="true"] {
+  border-top-color: #bae6fd !important;
+  border-bottom-color: #0369a1 !important;
+  box-shadow:
+    0 5px 14px -2px rgba(2, 132, 199, 0.28),
+    0 2px 4px rgba(15, 23, 42, 0.07),
+    inset 0 1px 0 #ffffff !important;
+}
+
+/* Amber 3D Tab Active State */
+.tab-3d-amber[aria-selected="true"] {
+  border-top-color: rgba(253, 230, 138, 0.6) !important;
+  border-bottom-color: #d97706 !important;
+  box-shadow:
+    0 6px 16px -2px rgba(245, 158, 11, 0.38),
+    0 2px 4px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+html.light .tab-3d-amber[aria-selected="true"] {
+  border-top-color: #fde68a !important;
+  border-bottom-color: #b45309 !important;
+  box-shadow:
+    0 5px 14px -2px rgba(217, 119, 6, 0.28),
+    0 2px 4px rgba(15, 23, 42, 0.07),
+    inset 0 1px 0 #ffffff !important;
+}
+
+/* Emerald 3D Tab Active State */
+.tab-3d-emerald[aria-selected="true"] {
+  border-top-color: rgba(167, 243, 208, 0.6) !important;
+  border-bottom-color: #059669 !important;
+  box-shadow:
+    0 6px 16px -2px rgba(16, 185, 129, 0.38),
+    0 2px 4px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+html.light .tab-3d-emerald[aria-selected="true"] {
+  border-top-color: #a7f3d0 !important;
+  border-bottom-color: #047857 !important;
+  box-shadow:
+    0 5px 14px -2px rgba(5, 150, 105, 0.28),
+    0 2px 4px rgba(15, 23, 42, 0.07),
+    inset 0 1px 0 #ffffff !important;
+}
+
+/* Rose 3D Tab Active State */
+.tab-3d-rose[aria-selected="true"] {
+  border-top-color: rgba(254, 205, 211, 0.6) !important;
+  border-bottom-color: #e11d48 !important;
+  box-shadow:
+    0 6px 16px -2px rgba(244, 63, 94, 0.38),
+    0 2px 4px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+html.light .tab-3d-rose[aria-selected="true"] {
+  border-top-color: #fecdd3 !important;
+  border-bottom-color: #be123c !important;
+  box-shadow:
+    0 5px 14px -2px rgba(225, 29, 72, 0.28),
+    0 2px 4px rgba(15, 23, 42, 0.07),
+    inset 0 1px 0 #ffffff !important;
 }

@@ -42,7 +42,7 @@ export const HeroMetrics: React.FC = () => {
                 </span>
               </div>
 
-              <div className="text-2xl sm:text-3xl font-extrabold text-slate-100 font-mono tracking-tight group-hover:text-cyan-300 transition-colors">
+              <div className="text-2xl sm:text-3xl font-extrabold text-slate-100 font-mono tracking-tight group-hover:text-cyan-300 transition-colors text-3d-stat">
                 {metric.value}
               </div>
 

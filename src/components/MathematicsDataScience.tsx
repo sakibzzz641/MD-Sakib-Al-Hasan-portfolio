@@ -45,7 +45,7 @@ export const MathematicsDataScience: React.FC = () => {
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
             Quantitative Rigor
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight text-3d-section">
             Mathematics Meets Data Science
           </h2>
           <p className="mt-3 text-base text-slate-400">

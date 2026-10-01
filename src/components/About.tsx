@@ -152,8 +152,8 @@ export const About: React.FC = () => {
                   </div>
                   <div>
                     <div className="text-[11px] font-mono text-slate-400 dark:text-slate-400 light:text-slate-600 uppercase font-medium">Location</div>
-                    <div className="text-sm font-semibold text-slate-200 dark:text-slate-200 light:text-slate-900">{profileData.snapshot.location}</div>
-                    <div className="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600">Chinishpur, Narsingdi Sadar, Bangladesh</div>
+                    <div className="text-sm font-semibold text-slate-200 dark:text-slate-200 light:text-slate-900">{profileData.location}</div>
+                    <div className="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600">Open to On-site (Dhaka/Narsingdi), Hybrid &amp; Remote</div>
                   </div>
                 </div>
 

@@ -24,7 +24,7 @@ export const Workflow: React.FC = () => {
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
               Methodology &amp; Standards
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight text-3d-section">
               From Raw Data to Insight
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mt-3" />
@@ -34,7 +34,7 @@ export const Workflow: React.FC = () => {
           </p>
         </div>
 
-        {/* 8-Step Interactive Navigation Tabs */}
+        {/* 8-Step Interactive Navigation Tabs with 3D Keycap Elevation */}
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5 mb-8" role="tablist" aria-label="Workflow Steps">
           {workflowStepsData.map((step, idx) => {
             const isSelected = selectedStepIndex === idx;
@@ -44,10 +44,10 @@ export const Workflow: React.FC = () => {
                 role="tab"
                 aria-selected={isSelected}
                 onClick={() => setSelectedStepIndex(idx)}
-                className={`flex flex-col items-center justify-center p-3 rounded-xl border-2 text-center transition-all cursor-pointer ${
+                className={`flex flex-col items-center justify-center p-3 rounded-xl border-2 text-center cursor-pointer tab-btn-3d tab-3d-cyan ${
                   isSelected
-                    ? 'bg-cyan-950/70 dark:bg-cyan-950/70 light:bg-cyan-50 border-cyan-500 dark:border-cyan-500 light:border-cyan-600 text-cyan-300 dark:text-cyan-300 light:text-cyan-900 shadow-lg shadow-cyan-900/30 light:shadow-cyan-600/15 light:ring-2 light:ring-cyan-500/40 font-bold scale-[1.02]'
-                    : 'bg-[#0e1626]/80 dark:bg-[#0e1626]/80 light:bg-white border-[#1f2d47] dark:border-[#1f2d47] light:border-slate-300 text-slate-400 dark:text-slate-400 light:text-slate-700 hover:text-slate-200 dark:hover:text-slate-200 light:hover:text-slate-900 hover:border-slate-600 dark:hover:border-slate-600 light:hover:border-cyan-500 light:hover:bg-slate-50'
+                    ? 'bg-cyan-950/90 dark:bg-cyan-950/90 light:bg-white border-cyan-500 dark:border-cyan-500 light:border-cyan-600 text-cyan-300 dark:text-cyan-300 light:text-cyan-900 font-bold'
+                    : 'bg-[#0e1626]/80 dark:bg-[#0e1626]/80 light:bg-white border-[#1f2d47] dark:border-[#1f2d47] light:border-slate-300 text-slate-400 dark:text-slate-400 light:text-slate-700 hover:text-slate-200 dark:hover:text-slate-200 light:hover:text-slate-900 hover:border-cyan-500/50'
                 }`}
               >
                 <span className={`font-mono text-xs font-bold ${isSelected ? 'text-cyan-400 dark:text-cyan-400 light:text-cyan-700' : 'text-slate-500 dark:text-slate-500 light:text-slate-500'}`}>

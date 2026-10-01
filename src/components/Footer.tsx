@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
               {profileData.name}
             </div>
             <p className="text-slate-500">
-              {profileData.title} · Chinishpur, Narsingdi, Bangladesh
+              {profileData.title} · {profileData.location}
             </p>
             <p className="text-[11px] text-slate-600">
               © {new Date().getFullYear()} MD. Sakib Al Hasan. All rights reserved.

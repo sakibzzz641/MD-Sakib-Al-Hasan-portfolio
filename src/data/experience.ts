@@ -5,7 +5,7 @@ export const experienceData: ExperienceItem[] = [
     id: "teaching-markazul",
     role: "Mathematics and English Teacher",
     organization: "Markazul Uloomid Deeniyyah",
-    location: "Narsingdi, Bangladesh",
+    location: "Narsingdi, Dhaka, Bangladesh",
     type: "Part-time",
     period: "July 2023 – Present",
     description: [

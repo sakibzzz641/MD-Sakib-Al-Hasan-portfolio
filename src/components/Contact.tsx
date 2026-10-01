@@ -67,7 +67,7 @@ export const Contact: React.FC = () => {
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
               Get In Touch
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight text-3d-section">
               Contact &amp; Connect
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mt-3" />

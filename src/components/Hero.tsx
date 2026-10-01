@@ -82,19 +82,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRecruiterSnapshot }) => {
               </div>
             </div>
 
-            {/* Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-100 dark:text-slate-100 light:text-slate-900 leading-[1.12]">
-              Turning Data Into{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500">
-                Meaningful Insights.
-              </span>
-            </h1>
-
-            {/* Subheadline & Description */}
+            {/* Subheadline & Description with semantic H1 */}
             <div className="space-y-3 max-w-2xl text-slate-300 dark:text-slate-300 light:text-slate-700 text-base sm:text-lg leading-relaxed">
-              <p className="font-medium text-slate-200 dark:text-slate-200 light:text-slate-800">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-100 dark:text-slate-100 light:text-slate-900 leading-snug">
                 {profileData.subheadline}
-              </p>
+              </h1>
               <p className="text-sm sm:text-base text-slate-400 dark:text-slate-400 light:text-slate-600">
                 {profileData.summary}
               </p>
@@ -215,23 +207,27 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRecruiterSnapshot }) => {
                     pca_clustering_eval.py
                   </span>
                 </div>
-                <div className="flex items-center gap-1 bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-200/90 rounded-md p-1 border border-slate-800 dark:border-slate-800 light:border-slate-300">
+                <div className="flex items-center gap-1 tab-track-3d p-1 rounded-lg" role="tablist" aria-label="Visualizer Mode">
                   <button
+                    role="tab"
+                    aria-selected={activeTab === 'clustering'}
                     onClick={() => setActiveTab('clustering')}
-                    className={`px-2.5 py-0.5 text-[11px] font-mono rounded transition-all cursor-pointer ${
+                    className={`px-3 py-1 text-[11px] font-mono rounded-md cursor-pointer tab-btn-3d tab-3d-cyan ${
                       activeTab === 'clustering'
-                        ? 'bg-cyan-500/20 dark:bg-cyan-500/20 light:bg-white text-cyan-300 dark:text-cyan-300 light:text-cyan-800 border border-cyan-500/50 dark:border-cyan-500/40 light:border-cyan-600 font-bold shadow-sm'
-                        : 'text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-slate-200 dark:hover:text-slate-300 light:hover:text-slate-900 border border-transparent'
+                        ? 'bg-cyan-950/80 dark:bg-cyan-950/80 light:bg-white text-cyan-300 dark:text-cyan-300 light:text-cyan-900 border border-cyan-500/60 dark:border-cyan-500/60 light:border-cyan-600 font-bold'
+                        : 'text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-slate-200 dark:hover:text-slate-200 light:hover:text-slate-900 border border-transparent'
                     }`}
                   >
                     PCA k=2
                   </button>
                   <button
+                    role="tab"
+                    aria-selected={activeTab === 'regression'}
                     onClick={() => setActiveTab('regression')}
-                    className={`px-2.5 py-0.5 text-[11px] font-mono rounded transition-all cursor-pointer ${
+                    className={`px-3 py-1 text-[11px] font-mono rounded-md cursor-pointer tab-btn-3d tab-3d-cyan ${
                       activeTab === 'regression'
-                        ? 'bg-cyan-500/20 dark:bg-cyan-500/20 light:bg-white text-cyan-300 dark:text-cyan-300 light:text-cyan-800 border border-cyan-500/50 dark:border-cyan-500/40 light:border-cyan-600 font-bold shadow-sm'
-                        : 'text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-slate-200 dark:hover:text-slate-300 light:hover:text-slate-900 border border-transparent'
+                        ? 'bg-cyan-950/80 dark:bg-cyan-950/80 light:bg-white text-cyan-300 dark:text-cyan-300 light:text-cyan-900 border border-cyan-500/60 dark:border-cyan-500/60 light:border-cyan-600 font-bold'
+                        : 'text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-slate-200 dark:hover:text-slate-200 light:hover:text-slate-900 border border-transparent'
                     }`}
                   >
                     Residuals

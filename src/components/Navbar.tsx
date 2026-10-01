@@ -246,7 +246,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Download CV */}
             <Tooltip
               content="Curriculum Vitae"
-              subtext="Download PDF (152 KB)"
+              subtext="Download Sakib_Al_Hasan_Data.pdf"
               position="bottom"
             >
               <a

@@ -1,20 +1,27 @@
 import { profileData } from '../data/profile';
-import { cvBase64Pdf } from '../data/cvBase64';
 
 /**
- * Robust CV PDF downloader that works universally in iframes and standard browsers.
- * Uses embedded standardized PDF data so it never 404s or downloads an HTML error page.
+ * Downloads the latest CV PDF from the repository asset folder.
+ * Uses an asynchronous fetch with cache: 'no-store' and a timestamp parameter to ensure that
+ * whenever the CV PDF in the asset folder is updated or replaced, the downloaded file is always fresh.
+ * Falls back gracefully to direct anchor link download if fetch/blob is blocked.
  */
-export const downloadCvPdf = (fileName: string = profileData.cv.fileName) => {
+export const downloadCvPdf = async (
+  fileName: string = profileData.cv.fileName,
+  downloadPath: string = profileData.cv.downloadPath
+) => {
   try {
-    // Decode base64 to binary byte array
-    const binaryString = window.atob(cvBase64Pdf);
-    const bytes = new Uint8Array(binaryString.length);
-    for (let i = 0; i < binaryString.length; i++) {
-      bytes[i] = binaryString.charCodeAt(i);
+    const cacheBuster = `t=${Date.now()}`;
+    const targetUrl = downloadPath.includes('?')
+      ? `${downloadPath}&${cacheBuster}`
+      : `${downloadPath}?${cacheBuster}`;
+
+    const response = await fetch(targetUrl, { cache: 'no-store' });
+    if (!response.ok) {
+      throw new Error(`Failed to fetch CV PDF: status ${response.status}`);
     }
 
-    const blob = new Blob([bytes], { type: 'application/pdf' });
+    const blob = await response.blob();
     const blobUrl = window.URL.createObjectURL(blob);
 
     const anchor = document.createElement('a');
@@ -29,11 +36,10 @@ export const downloadCvPdf = (fileName: string = profileData.cv.fileName) => {
       window.URL.revokeObjectURL(blobUrl);
     }, 15000);
   } catch (error) {
-    console.error('Blob download failed, falling back to direct URL:', error);
-    // Fallback to direct anchor link
+    console.warn('Fetch blob download fallback to direct anchor:', error);
     const anchor = document.createElement('a');
     anchor.style.display = 'none';
-    anchor.href = profileData.cv.downloadPath;
+    anchor.href = downloadPath;
     anchor.download = fileName;
     anchor.target = '_blank';
     anchor.rel = 'noopener noreferrer';

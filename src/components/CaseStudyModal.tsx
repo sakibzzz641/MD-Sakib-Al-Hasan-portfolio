@@ -77,15 +77,16 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
         </div>
 
         {/* Tab Strip */}
-        <div className="px-4 sm:px-6 border-b border-[#1f2d47] dark:border-[#1f2d47] light:border-slate-300 bg-[#0c121e] dark:bg-[#0c121e] light:bg-slate-100/90 flex gap-2 sm:gap-4 overflow-x-auto text-xs font-semibold font-mono shrink-0 min-h-[58px] items-center" role="tablist" aria-label="Case Study Tabs">
+        {/* Modal Navigation Tab Bar with 3D Tactile Deck & Keycaps */}
+        <div className="px-4 sm:px-6 py-2 border-b border-[#1f2d47] dark:border-[#1f2d47] light:border-slate-300 bg-[#0a0f1a] dark:bg-[#0a0f1a] light:bg-slate-100/95 flex gap-2 sm:gap-3 overflow-x-auto text-xs font-semibold font-mono shrink-0 min-h-[58px] items-center" role="tablist" aria-label="Case Study Tabs">
           <button
             role="tab"
             aria-selected={activeTab === 'study'}
             onClick={() => setActiveTab('study')}
-            className={`py-2 px-3 rounded-lg border-2 flex items-center gap-2 transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 ${
+            className={`py-2 px-3.5 rounded-lg border-2 flex items-center gap-2 cursor-pointer whitespace-nowrap shrink-0 tab-btn-3d tab-3d-cyan ${
               activeTab === 'study'
-                ? 'border-cyan-500 dark:border-cyan-400 light:border-cyan-600 bg-cyan-950/60 dark:bg-cyan-950/60 light:bg-white text-cyan-300 dark:text-cyan-300 light:text-cyan-900 shadow-md shadow-cyan-950/30 light:shadow-sm light:ring-1 light:ring-cyan-500/40 font-bold'
-                : 'border-transparent light:border-slate-300 text-slate-400 dark:text-slate-400 light:text-slate-700 light:bg-white/60 hover:text-cyan-400 dark:hover:text-cyan-400 light:hover:text-cyan-900 hover:border-cyan-500/40 dark:hover:border-cyan-400/60 light:hover:border-slate-400 light:hover:bg-white'
+                ? 'border-cyan-500 dark:border-cyan-400 light:border-cyan-600 bg-cyan-950/80 dark:bg-cyan-950/80 light:bg-white text-cyan-300 dark:text-cyan-300 light:text-cyan-900 font-bold'
+                : 'border-slate-800 dark:border-slate-800 light:border-slate-300 bg-[#0e1626]/70 dark:bg-[#0e1626]/70 light:bg-white/80 text-slate-400 dark:text-slate-400 light:text-slate-700 hover:text-cyan-400 dark:hover:text-cyan-400 light:hover:text-cyan-900 hover:border-cyan-500/50'
             }`}
           >
             <FileText className="w-4 h-4 text-cyan-400 light:text-cyan-700" />
@@ -96,10 +97,10 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
             role="tab"
             aria-selected={activeTab === 'pipeline'}
             onClick={() => setActiveTab('pipeline')}
-            className={`py-2 px-3 rounded-lg border-2 flex items-center gap-2 transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 ${
+            className={`py-2 px-3.5 rounded-lg border-2 flex items-center gap-2 cursor-pointer whitespace-nowrap shrink-0 tab-btn-3d tab-3d-purple ${
               activeTab === 'pipeline'
-                ? 'border-purple-500 dark:border-purple-400 light:border-purple-600 bg-purple-950/60 dark:bg-purple-950/60 light:bg-white text-purple-300 dark:text-purple-300 light:text-purple-900 shadow-md shadow-purple-950/30 light:shadow-sm light:ring-1 light:ring-purple-500/40 font-bold'
-                : 'border-transparent light:border-slate-300 text-slate-400 dark:text-slate-400 light:text-slate-700 light:bg-white/60 hover:text-purple-400 dark:hover:text-purple-400 light:hover:text-purple-900 hover:border-purple-500/40 dark:hover:border-purple-400/60 light:hover:border-slate-400 light:hover:bg-white'
+                ? 'border-purple-500 dark:border-purple-400 light:border-purple-600 bg-purple-950/80 dark:bg-purple-950/80 light:bg-white text-purple-300 dark:text-purple-300 light:text-purple-900 font-bold'
+                : 'border-slate-800 dark:border-slate-800 light:border-slate-300 bg-[#0e1626]/70 dark:bg-[#0e1626]/70 light:bg-white/80 text-slate-400 dark:text-slate-400 light:text-slate-700 hover:text-purple-400 dark:hover:text-purple-400 light:hover:text-purple-900 hover:border-purple-500/50'
             }`}
           >
             <Layers className="w-4 h-4 text-purple-400 light:text-purple-700" />
@@ -110,10 +111,10 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
             role="tab"
             aria-selected={activeTab === 'visuals'}
             onClick={() => setActiveTab('visuals')}
-            className={`py-2 px-3 rounded-lg border-2 flex items-center gap-2 transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 ${
+            className={`py-2 px-3.5 rounded-lg border-2 flex items-center gap-2 cursor-pointer whitespace-nowrap shrink-0 tab-btn-3d tab-3d-emerald ${
               activeTab === 'visuals'
-                ? 'border-emerald-500 dark:border-emerald-400 light:border-emerald-600 bg-emerald-950/60 dark:bg-emerald-950/60 light:bg-white text-emerald-300 dark:text-emerald-300 light:text-emerald-900 shadow-md shadow-emerald-950/30 light:shadow-sm light:ring-1 light:ring-emerald-500/40 font-bold'
-                : 'border-transparent light:border-slate-300 text-slate-400 dark:text-slate-400 light:text-slate-700 light:bg-white/60 hover:text-emerald-400 dark:hover:text-emerald-400 light:hover:text-emerald-900 hover:border-emerald-500/40 dark:hover:border-emerald-400/60 light:hover:border-slate-400 light:hover:bg-white'
+                ? 'border-emerald-500 dark:border-emerald-400 light:border-emerald-600 bg-emerald-950/80 dark:bg-emerald-950/80 light:bg-white text-emerald-300 dark:text-emerald-300 light:text-emerald-900 font-bold'
+                : 'border-slate-800 dark:border-slate-800 light:border-slate-300 bg-[#0e1626]/70 dark:bg-[#0e1626]/70 light:bg-white/80 text-slate-400 dark:text-slate-400 light:text-slate-700 hover:text-emerald-400 dark:hover:text-emerald-400 light:hover:text-emerald-900 hover:border-emerald-500/50'
             }`}
           >
             <ImageIcon className="w-4 h-4 text-emerald-400 light:text-emerald-700" />
@@ -124,10 +125,10 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
             role="tab"
             aria-selected={activeTab === 'files'}
             onClick={() => setActiveTab('files')}
-            className={`py-2 px-3 rounded-lg border-2 flex items-center gap-2 transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 ${
+            className={`py-2 px-3.5 rounded-lg border-2 flex items-center gap-2 cursor-pointer whitespace-nowrap shrink-0 tab-btn-3d tab-3d-amber ${
               activeTab === 'files'
-                ? 'border-amber-500 dark:border-amber-400 light:border-amber-600 bg-amber-950/60 dark:bg-amber-950/60 light:bg-white text-amber-300 dark:text-amber-300 light:text-amber-900 shadow-md shadow-amber-950/30 light:shadow-sm light:ring-1 light:ring-amber-500/40 font-bold'
-                : 'border-transparent light:border-slate-300 text-slate-400 dark:text-slate-400 light:text-slate-700 light:bg-white/60 hover:text-amber-400 dark:hover:text-amber-400 light:hover:text-amber-900 hover:border-amber-500/40 dark:hover:border-amber-400/60 light:hover:border-slate-400 light:hover:bg-white'
+                ? 'border-amber-500 dark:border-amber-400 light:border-amber-600 bg-amber-950/80 dark:bg-amber-950/80 light:bg-white text-amber-300 dark:text-amber-300 light:text-amber-900 font-bold'
+                : 'border-slate-800 dark:border-slate-800 light:border-slate-300 bg-[#0e1626]/70 dark:bg-[#0e1626]/70 light:bg-white/80 text-slate-400 dark:text-slate-400 light:text-slate-700 hover:text-amber-400 dark:hover:text-amber-400 light:hover:text-amber-900 hover:border-amber-500/50'
             }`}
           >
             <FolderOpen className="w-4 h-4 text-amber-400 light:text-amber-700" />
@@ -197,11 +198,17 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
                 </div>
               </div>
 
-              {/* 3. Dimensionality Reduction & PCA */}
+              {/* 3. Dimensionality Reduction & PCA / Pipeline Architecture */}
               <div className="space-y-3">
                 <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2 border-b border-slate-800 pb-2">
                   <span className="text-cyan-400 font-mono text-sm">03.</span>
-                  <span>Dimensionality Reduction (PCA)</span>
+                  <span>
+                    {project.category.includes('Classification')
+                      ? 'Pipeline Architecture & Class Balancing'
+                      : project.category.includes('Regression')
+                      ? 'Pipeline Architecture & Leakage-Free Design'
+                      : 'Dimensionality Reduction (PCA)'}
+                  </span>
                 </h3>
                 <ul className="space-y-2 text-sm text-slate-300">
                   {cs.dimensionalityReduction.map((item, i) => (
@@ -217,16 +224,30 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
               <div className="space-y-3">
                 <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2 border-b border-slate-800 pb-2">
                   <span className="text-cyan-400 font-mono text-sm">04.</span>
-                  <span>Clustering Algorithm Benchmark</span>
+                  <span>
+                    {project.category.includes('Classification')
+                      ? 'Multi-Model Benchmark & Performance Shootout'
+                      : project.category.includes('Regression')
+                      ? '8-Model 5-Fold Cross-Validation & Test Benchmark'
+                      : 'Clustering Algorithm Benchmark'}
+                  </span>
                 </h3>
                 <div className="overflow-x-auto rounded-xl border border-slate-800">
                   <table className="w-full text-left text-xs font-mono">
                     <thead className="bg-slate-900 text-slate-300 uppercase text-[10px] border-b border-slate-800">
                       <tr>
                         <th className="p-3">Algorithm</th>
-                        <th className="p-3">Hyperparameters</th>
-                        <th className="p-3">Silhouette Score</th>
-                        <th className="p-3">Key Strengths</th>
+                        <th className="p-3">
+                          {project.category.includes('Classification') || project.category.includes('Regression')
+                            ? 'Hyperparameters / Config'
+                            : 'Hyperparameters'}
+                        </th>
+                        <th className="p-3">
+                          {project.category.includes('Classification') || project.category.includes('Regression')
+                            ? 'Validation & Test Metric'
+                            : 'Silhouette Score'}
+                        </th>
+                        <th className="p-3">Key Strengths &amp; Notes</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-800">
